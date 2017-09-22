@@ -1,0 +1,25 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+<div class="table-responsive availability-table">
+    <table class="table table-condensed table-bordered">
+        <thead>
+        <tr bgcolor="#FCECB2">
+            <th class="text-center">Job Type</th>
+            <th class="text-center">Neighborhood</th>
+            <th class="text-center">Dates</th>
+            <th class="text-center">Hours</th>
+            <th class="text-center">Weekdays</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="job in jobs | filter:{jobType : filters.jobType}" class="text-center">
+            <td>{{getEnglishName("JobType", job.jobType)}}</td>
+            <td>{{getEnglishName("City", job.city)}}, {{getNeighborhoodEnglishName(job.city, job.neighborhood)}}</td>
+            <td><span ng-repeat="workday in job.workDays">{{workday.startTime | date:'MM/dd/yyyy'}}</span></td>
+            <td><span ng-repeat="workday in job.workDays">{{workday.startTime | date:'HH:mm'}}-{{workday.endTime | date:'HH:mm'}}</span></td>
+            <td><span ng-repeat="workday in job.workDays">{{workday.startTime | date:'EEE'}}</span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

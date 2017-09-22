@@ -1,0 +1,26 @@
+<div>
+    <h3>{{'OFFERINGS' | translate}}</h3>
+    <div class="help">{{'CHECKBOX_HELP' | translate}}</div>
+    <span ng-repeat="offering in offerings">
+        <label>
+            <label class="control control--checkbox">
+                <input type="checkbox" ng-model="offering.checked" ng-change="showHomeworkHelp(offering)"/>
+                <div class="control__indicator"></div>
+            </label>
+            {{getText(offering)}}
+        </label>
+    </span>
+</div>
+
+<div ng-if="toShowHomeworkHelp"><h3>{{'HOMEWORK_HELP' | translate}}</h3>
+    <div class="help">{{'CHECKBOX_HELP' | translate}}</div>
+    <span ng-repeat="homeworkHelp in homeworkHelps">
+        <label>
+            <label class="control control--checkbox">
+                <input type="checkbox" ng-model="homeworkHelp.checked"/>
+                <div class="control__indicator"></div>
+            </label>
+            {{getText(homeworkHelp)}}
+        </label>
+    </span>
+</div>

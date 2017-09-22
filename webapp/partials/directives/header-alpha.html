@@ -1,0 +1,46 @@
+<!-- Header -->
+<header class="header" dir="ltr">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header" ng-class="{'navbar-lang':showLangSelect()}">
+                <!--div><img src="images/flags/IL.png"/></div-->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Logo -->
+                <div class="logo">
+                    <a ng-href="#/main/{{lang}}"><img class="logo-img" src="images/logo.png" alt="Babysitter"></a>
+
+                </div>
+                <!-- Logo / End -->
+                <!--Button for switching languages-->
+
+            </div>
+            <div class="flag" ng-show="showLangSelect()">
+                <a ng-click="switchTo()"><img ng-src="{{getFlagUrl(lang)}}"/></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar" ng-class="{'navbar-lang-wide':showLangSelect()}">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="highlight" ng-href={{linkToProfile()}}>{{getGreeting(lang)}}</a></li>
+                    <li><a class="highlight" href="https://blog.popinz.co/camps/">{{lang | translateRe : "CAMPS"}}</a></li>
+                    <li><a ng-href="#/sitters/{{lang}}">{{lang | translateRe : "SEARCH"}}</a></li>
+                    <li><a ng-href="https://blog.popinz.co/about-{{lang}}/">{{lang | translateRe : "ABOUT"}}</a></li>
+                    <li><a href="https://blog.popinz.co/">{{lang | translateRe : "BLOG"}}</a></li>
+                    <li ng-if="credsEmpty()">
+                        <a ng-href="#/signup/{{lang}}">{{lang | translateRe : "SIGN_UP"}}</a>
+                    </li>
+                    <li>
+                        <a ng-href="#/login/{{lang}}">
+                            <span ng-if="credsEmpty()">{{lang | translateRe : "LOGIN"}}</span>
+                            <span ng-if="!credsEmpty()">{{lang | translateRe : "LOGOUT"}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+<!-- Header / End -->

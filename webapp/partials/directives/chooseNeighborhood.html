@@ -1,0 +1,46 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+<div>
+    <div ng-hide="(checkedNeighborhoods && checkedNeighborhoods.length>0) || view || (edit && !edit.areas) ">
+        <label class="control control--checkbox">
+            <input type="checkbox" data-toggle="modal" data-target="#neighborhoodsModal" ng-model="sitter.jerusalemWork"/>
+            <div class="control__indicator"></div>
+        </label>
+        {{'IN_JERUSALEM' | translate}}
+    </div>
+    <div ng-show="checkedNeighborhoods.length>0"><span class="text-info">&#x2713 {{'IN_JERUSALEM' | translate}}:</span>
+        <span ng-repeat="checkedNeighborhood in checkedNeighborhoods">{{getNeighborhoodName("JERUSALEM", checkedNeighborhood, lang)}}<span ng-hide="$last">, </span></span>
+    </div>
+    <button  type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#neighborhoodsModal" ng-show="checkedNeighborhoods.length>0 && ((!view && !edit)|| (edit && edit.areas))">{{'EDIT' | translate}}</button>
+    <!-- Modal -->
+    <div class="modal fade" id="neighborhoodsModal" tabindex="-1" role="dialog" aria-labelledby="neighborhoodsModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h3 class="modal-title" id="neighborhoodsModalLabel">{{'HEADER_NEIGHBORHOODS' | translate}}</h3>
+                    <h3><a href="https://blog.popinz.co/jerusalem-map/" target="_blank">{{"VIEW_ON_MAP" | translate}}</a></h3>
+                    <div class="cross" data-dismiss="modal">&#x2715</div>
+                </div>
+                <div class="modal-body text-center">
+                    <div ng-repeat="jerusalemPart in jerusalemParts">
+                        <span ng-repeat="jerNeighborhood in jerusalemPart | orderBy : 'name'">
+                            <label>
+                                <label class="control control--checkbox">
+                                    <input type="checkbox" ng-model="jerNeighborhood.checked"/>
+                                    <div class="control__indicator"></div>
+                                </label>
+                                {{getText(jerNeighborhood)}}
+                            </label>
+                        </span>
+                        <hr ng-hide="$last">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-md btn-main center-block" data-dismiss="modal" ng-click='getCheckedNeighborhoods()'>{{'SAVE' | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

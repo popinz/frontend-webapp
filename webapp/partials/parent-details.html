@@ -1,0 +1,61 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+
+<form ng-submit="createParentProfile()" class="text-center signup-block" name="parentSignupForm">
+    <div ng-hide="nextButtons">
+        <div ng-if="parentDetails.confirm === undefined">
+            <h1>{{'HEADER_1' | translate}}</h1>
+            <names person="parent" lang="lang"></names>
+        <!--div><h3>{{'FIRST_NAME' | translate}}<span class="text-danger">*</span></h3>
+            <input ng-if="lang == 'en'" ng-model="parent.firstNameEn" type="text" size="30" required>
+            <input ng-if="lang == 'he'" name="firstNameHeInput" ng-model="parent.firstNameHe" type="text" size="30" required>
+        </div>
+        <div><h3>{{'LAST_NAME' | translate}}<span class="text-danger">*</span></h3>
+            <input ng-if="lang == 'en'" ng-model="parent.lastNameEn" type="text" size="30" required>
+            <input ng-if="lang == 'he'" ng-model="parent.lastNameHe" type="text" size="30" required>
+        </div-->
+            <div ng-class="{ 'has-error' : parentSignupForm.email.$invalid && !parentSignupForm.email.$pristine }">
+                <h3>{{'EMAIL' | translate}}<span class="text-danger">*</span></h3>
+                <input name="email" ng-model="parent.email" type="email" size="30" required> </div>
+                <p ng-show="parentSignupForm.email.$invalid && !parentSignupForm.email.$pristine" class="help-block">{{'VALID_EMAIL' | translate}}</p>
+            <div ng-if="showPass" ng-if="showPass" ng-class="{ 'has-error' : parentSignupForm.password.$invalid && !parentSignupForm.password.$pristine }">
+                <h3>{{'PASSWORD' | translate}}<span class="text-danger">*</span></h3>
+                <div class="help">{{'PASSWORD_HELP' | translate}}</div>
+                <input name="password" ng-model="parent.password" type="password" size="30" pattern={{passwordPattern}} required>
+                <p ng-show="parentSignupForm.password.$invalid && !parentSignupForm.password.$pristine" class="help-block">{{'VALID_PASSWORD' | translate}}</p>
+            </div>
+            <div><h3>{{'HOW_HEARD' | translate}}</h3>
+                <select ng-model="parent.howHeard">
+                    <option ng-repeat="howHeard in howHeards" ng-value="howHeard.name">{{getText(howHeard)}}</option>
+                </select>
+            </div>
+            <div class="buttons-div">
+                <input type="submit" class="btn btn-small btn-main" id="getStartedParentButton" value="{{'GET_STARTED_BTN' | translate}}">
+            </div>
+            <div class="welcome-text">
+                <h4>{{"PARENT_INFO_TEXT_HEADER" | translate}}</h4>
+                <!--p>{{"PARENT_INFO_TEXT1" | translate}}<br/>
+                    {{"PARENT_INFO_TEXT2" | translate}}</p-->
+            </div>
+        </div>
+
+        <div ng-if="parentDetails.confirm !== undefined">
+            <h1>{{'EMAIL_CONFIRM_SENT' | translate}}</h1>
+            <h3>{{'CONFIRMATION_CODE' | translate}}<span class="text-danger">*</span></h3>
+            <input type="text" name="confirm" ng-model="parent.confirm"  />
+            <div class="buttons-div">
+                <input type="submit" class="btn btn-small btn-main" id="getStartedButton" value="{{'CONFIRM' | translate}}">
+            </div>
+        </div>
+
+    </div>
+    <!--div ng-show="nextButtons">
+        <h1>{{"PARENT_CONGRATS_HEADER1" | translate}}</h1>
+        <h2>{{"PARENT_CONGRATS_HEADER2" | translate}}</h2>
+        <p>{{"PARENT_CONGRATS_TEXT1" | translate}}<br/>
+            {{"PARENT_CONGRATS_TEXT2" | translate}} <a href="https://blog.popinz.co/">{{"PARENT_CONGRATS_LINK1" | translate}}</a> {{"PARENT_CONGRATS_TEXT3" | translate}}<br/>
+            <a ng-href="https://blog.popinz.co/parents-info-{{lang}}/">{{"PARENT_CONGRATS_LINK2" | translate}}</a>
+        </p>
+    </div-->
+</form>

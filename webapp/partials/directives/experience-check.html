@@ -1,0 +1,13 @@
+<div>
+    <h3>{{'EXPERIENCE' | translate}}</h3>
+    <div class="help">{{'CHECKBOX_HELP' | translate}}</div>
+    <span ng-repeat="experience in experiences">
+        <label>
+            <label class="control control--checkbox">
+                <input type="checkbox" ng-model="experience.checked"/>
+                <div class="control__indicator"></div>
+            </label>
+            {{getText(experience)}}
+        </label>
+    </span>
+</div>

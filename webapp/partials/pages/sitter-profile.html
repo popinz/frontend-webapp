@@ -1,0 +1,176 @@
+<div class="page-wrapper profile" ng-show="sitter_loaded">
+    <!-- Congratulation Modal -->
+    <div class="modal fade" id="congratulationModal" tabindex="-1" role="dialog" aria-labelledby="congratulationModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content text-center">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="congratulationModalLabel">{{::"CONGRATS_HEADER" | translate}}</h2>
+                </div>
+                <div class="modal-body">
+                    {{::"CONGRATS_TEXT1" | translate}}<br/>
+                    {{::"CONGRATS_TEXT2" | translate}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-md btn-main center-block" data-dismiss="modal" ng-click="complete()">{{::"CONGRATS_BTN" | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-danger language-alert" ng-show="displayAlert">
+        {{::"PROFILE_INCOMPLETE" | translate}}
+    </div>
+    <div class="alert alert-danger language-alert" ng-show="displayViewAlert">
+        {{::"ANOTHER_LANG_PROFILE" | translate}}
+    </div>
+    <div class="horizontal-card">
+        <div class="card topcard">
+            <div class="main-info">
+                <div class="left_part">
+                    <img ng-src="{{sitter.img?'data:image/png;base64,'+sitter.img:'../images/placeholders/userpic.png'}}" class="img-thumbnail"/>
+                    <button ng-show="showContactBtn()" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#contactSitterModal">
+                        {{::"CONTACT_SITTER_BTN" | translate}}
+                    </button>
+                    <button ng-show="edit.mainInfo" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#photoModal">
+                        {{::"CHANGE_PHOTO_BTN" | translate}}
+                    </button>
+                    <contact-sitter></contact-sitter>
+                    <!-- Change photo modal -->
+                    <div class="modal fade text-center" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="photoModalLabel">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title text-center" id="photoModalLabel">{{::"CHANGE_PHOTO_HEADER" | translate}}</h3>
+                                    <div class="cross" data-dismiss="modal">&#x2715</div>
+                                </div>
+                                <div class="modal-body">
+                                    <upload-image></upload-image>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-md btn-main center-block" ng-click='resizeImage()'>{{::'SAVE' | translate}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-{{default_float}} info-text">
+                    <div ng-hide="edit.mainInfo">
+                        <h1 ng-if="(lang=='en' && sitter.firstNameEn)||(view && lang=='he' && !sitter.firstNameHe)">{{sitter.firstNameEn}} {{sitter.lastNameEn}}</h1>
+                        <h1 ng-if="(lang=='he' && sitter.firstNameHe)||((view && lang=='en' && !sitter.firstNameEn))">{{sitter.firstNameHe}} {{sitter.lastNameHe}}</h1>
+                        <h3 class="alert-text" ng-if="!view && showNameAlert(sitter)">{{::"NAME_ALERT" | translate}}</h3>
+                    </div>
+                    <names person="sitter" lang="lang" ng-show="edit.mainInfo"></names>
+                    <span ng-hide="edit.mainInfo"><h3>{{::"I_AM" | translate}}: </h3>
+                        <span ng-if="sitter.gender">{{sitter.gender | translate}}</span>
+                        <span ng-if="sitter.age"><span ng-if="lang=='en'">,</span> {{sitter.age}}<span ng-if="lang=='en'"> years old</span><br/></span>
+                    </span>
+                    <personal-details ng-show="edit.mainInfo" ng-class="text-{{default_float}}"></personal-details>
+                    <div><span ng-hide="edit.mainInfo">
+                            <h3>{{::"I_LIVE_IN" | translate}}:</h3>{{getName("City", sitter.city, lang)}}
+                            <span ng-show="sitter.neighborhood">, {{getNeighborhoodName(sitter.city, sitter.neighborhood, lang)}}</span><br/>
+                        </span>
+                        <location person="sitter" location-required=true ng-show="edit.mainInfo"></location>
+                    </div>
+                    <div>
+                        <h3 style="display:initial">{{::"I_SPEAK" | translate}}: </h3>
+                        <span ng-repeat="language in sitter.languages" ng-hide="edit.mainInfo">{{getName("Language", language, lang)}}<span ng-hide="$last">, </span></span>
+                        <lang-check ng-show="edit.mainInfo"></lang-check>
+                    </div>
+                    <div><h3 style="display:initial">{{::"I_AM_LOOKING_FOR" | translate}}: </h3>
+                        <span ng-hide="edit.mainInfo"><span ng-repeat="type in sitter.jobType">{{getName("JobType", type, lang)}}<span ng-hide="$last">,</span> </span><span ng-show="sitter.jobType && sitter.jobType.length>0 && lang=='en'">job</span></span><br/>
+                        <job-types ng-show="edit.mainInfo"></job-types>
+                    </div>
+
+                    <div ng-hide="edit.mainInfo">
+                        <h3>{{::"MY_SKILLS_ARE" | translate}}:</h3>
+                        <div>
+                            <figure class="skill-preview" ng-repeat="skill in sitter.skills">
+                                <img ng-src="../images/skills/active/{{skill}}.png" class="img-responsive">
+                                <figcaption>{{getName("Skills", skill, lang)}}
+                                    <span ng-if="skill=='FIRST_AID_TRAINING'&&sitter.firstAid[0]">: {{getName("FirstAid", sitter.firstAid[0], lang)}}</span>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <skills-check ng-show="edit.mainInfo"></skills-check>
+                </div>
+            </div>
+            <button class="pencil-edit" type="button" class="btn btn-sm" ng-show="edit && (cardOpen=='none'||cardOpen=='mainInfo')" ng-click="editMode('mainInfo')"><img ng-src="{{edit.mainInfo? '../images/buttons/save.png':'../images/buttons/edit.png'}}"/></button>
+        </div>
+        <div id="contactInfo" ng-show="edit" class="card abouts">
+            <h3>{{::"CONTACT_INFO_HEADER" | translate}}</h3>
+            <div class="help">{{::"CONTACT_INFO_HELP" | translate}}</div>
+            <div ng-hide="edit.contactInfo">
+                <h4>{{::"ADDRESS" | translate}}:</h4>{{sitter.street}}<span ng-show="sitter.homeNumber">, </span><span ng-show="sitter.homeNumber">{{sitter.homeNumber}}</span><br/>
+                <h4>{{::'MOBILE'|translate}}:</h4>{{sitter.phoneNumberPrefix}}-{{sitter.phoneNumberSuffix}}
+            </div>
+            <contact-details person="sitter" ng-show="edit.contactInfo" ng-class="{he:'text-right', en:'text-left'}[lang]"></contact-details>
+            <button class="pencil-edit" type="button" class="btn btn-sm" ng-show="edit && (cardOpen=='none'||cardOpen=='contactInfo')" ng-click="editMode('contactInfo')"><img ng-src="{{edit.contactInfo? '../images/buttons/save.png':'../images/buttons/edit.png'}}"/></button>
+        </div>
+        <div id="aboutMe" class="card abouts">
+            <h3 ng-hide="edit.aboutMe">{{::"ABOUT_ME_HEADER" | translate}}:</h3>
+            <div ng-hide="edit.aboutMe">
+                <span ng-if="(lang=='en' && sitter.aboutMeEn)|| (view && lang=='he' && !sitter.aboutMeHeb)">{{sitter.aboutMeEn}}</span>
+                <span ng-if="(lang=='he' && sitter.aboutMeHeb) || (view && lang=='en' && !sitter.aboutMeEn)">{{sitter.aboutMeHeb}}</span>
+                <span class="alert-text" ng-if="!view && showAboutMeAlert(sitter)">{{::"ABOUT_ME_ALERT" | translate}}</span>
+            </div>
+            <about-me ng-show="edit.aboutMe"></about-me>
+            <button class="pencil-edit" type="button" class="btn btn-sm" ng-show="edit && (cardOpen=='none'||cardOpen=='aboutMe')" ng-click="editMode('aboutMe')"><img ng-src="{{edit.aboutMe? '../images/buttons/save.png':'../images/buttons/edit.png'}}"/></button>
+        </div>
+        <div div="experienceText" class="card abouts">
+            <h3 ng-hide="edit.experienceText">{{::"EXPERIENCE_TEXT_HEADER" | translate}}:</h3>
+            <div ng-hide="edit.experienceText">
+                <span ng-if="(lang=='en' && sitter.experienceStringEn)||(view && lang=='he' && !sitter.experienceStringHeb)">{{sitter.experienceStringEn}}</span>
+                <span ng-if="(lang=='he' && sitter.experienceStringHeb)||(view && lang=='en' && !sitter.experienceStringEn)">{{sitter.experienceStringHeb}}</span>
+                <span class="alert-text" ng-if="!view && showExperienceAlert(sitter)">{{::"EXPERIENCE_ALERT" | translate}}</span>
+            </div>
+            <experience-text ng-show="edit.experienceText"></experience-text>
+            <button class="pencil-edit" type="button" class="btn btn-sm" ng-show="edit && (cardOpen=='none'||cardOpen=='experienceText')" ng-click="editMode('experienceText')"><img ng-src="{{edit.experienceText? '../images/buttons/save.png':'../images/buttons/edit.png'}}"/></button>
+        </div>
+        <div id="areas" class="card abouts">
+            <h3>{{::"AREAS_HEADER" | translate}}:</h3>
+            <choose-neighborhood></choose-neighborhood>
+            <choose-cities></choose-cities>
+            <button class="pencil-edit" type="button" class="btn btn-sm" ng-show="edit && (cardOpen=='none'||cardOpen=='areas')" ng-click="editMode('areas')"><img ng-src="{{edit.areas? '../images/buttons/save.png':'../images/buttons/edit.png'}}"/></button>
+        </div>
+    </div>
+    <div id="add1" class="vertical-card">
+    </div>
+    <div class="card abouts calendar-div">
+        <h3 ng-hide="edit.calendar">{{::"CALENDAR_HEADER" | translate}} ({{::"VALID_TILL" | translate}} {{sitter.calendarValidUntil | date : "dd-MM-yyyy"}}):</h3>
+        <availability-calendar></availability-calendar>
+        <button class="pencil-edit" type="button" class="btn btn-sm" ng-show="edit && (cardOpen=='none'||cardOpen=='calendar')" ng-click="editMode('calendar')"><img ng-src="{{edit.calendar? '../images/buttons/save.png':'../images/buttons/edit.png'}}"/></button>
+    </div>
+
+
+    <div class="card abouts">
+        <div ng-hide="edit.offeringsIcons">
+            <h3>{{::"EXPERIENCE_HEADER" | translate}}:</h3>
+            <figure class="skill-preview" ng-repeat="experience in sitter.experience">
+                <img ng-src="../images/experience/{{experience}}.png" class="img-responsive offering-preview">
+                <figcaption>{{getName("Experience", experience, lang)}}</figcaption>
+            </figure>
+        </div>
+        <experience-check ng-show="edit.offeringsIcons"></experience-check>
+
+        <div ng-hide="edit.offeringsIcons">
+            <h3>{{::"OFFERINGS_HEADER" | translate}}:</h3>
+            <figure class="skill-preview" ng-repeat="offering in sitter.offerings">
+                <img ng-src="../images/offerings/{{offering}}.png" class="img-responsive offering-preview">
+                <figcaption>{{getName("Offerings", offering, lang)}}</figcaption>
+            </figure>
+        </div>
+        <div ng-hide="edit.offeringsIcons || !sitter.homeworkHelp || sitter.homeworkHelp.length == 0">
+            <h3>{{::"HOMEWORK_HELP_HEADER" | translate}}:</h3>
+            <figure class="skill-preview" ng-repeat="homeworkHelp in sitter.homeworkHelp">
+                <img ng-src="../images/homeworkHelp/{{homeworkHelp}}.png" class="img-responsive homework-preview">
+                <figcaption>{{getName("HomeworkHelp", homeworkHelp, lang)}}</figcaption>
+            </figure>
+        </div>
+        <offerings-check ng-show="edit.offeringsIcons"></offerings-check>
+        <button class="pencil-edit" type="button" class="btn btn-sm" ng-show="edit  && (cardOpen=='none'||cardOpen=='offeringsIcons')" ng-click="editMode('offeringsIcons')"><img ng-src="{{edit.offeringsIcons? '../images/buttons/save.png':'../images/buttons/edit.png'}}"/></button>
+    </div>
+
+</div>
+<script type="text/javascript">
+  postscribe('#add1', '<div><script type="text/javascript" language="javascript" src="https://live.sekindo.com/live/liveView.php?s=77314&cbuster=[CACHE_BUSTER]&pubUrl=[PAGE_URL_ENCODED]&subId=[SUBID_ENCODED]&clkCbPub=[CLICK_TRACKER_ENCODED]"><\/script></div>');
+</script>

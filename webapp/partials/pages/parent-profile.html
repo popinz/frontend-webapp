@@ -1,0 +1,65 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+<div class="page-wrapper profile parent-profile" ng-show="parent_loaded">
+    <!--section class="text-center">
+        <h1>{{::"PARENT_PROFILE_HEADER1" | translate}}</h1>
+        <h1>{{"PARENT_CONGRATS_HEADER1" | translate}}</h1>
+        <h2>{{"PARENT_CONGRATS_HEADER2" | translate}}</h2>
+        <p>{{"PARENT_CONGRATS_TEXT1" | translate}}<br/>
+            {{"PARENT_CONGRATS_TEXT2" | translate}} <a href="https://blog.popinz.co/">{{"PARENT_CONGRATS_LINK1" | translate}}</a> {{"PARENT_CONGRATS_TEXT3" | translate}}<br/>
+            <a ng-href="https://blog.popinz.co/parents-info-{{lang}}/">{{"PARENT_CONGRATS_LINK2" | translate}}</a>
+        </p>
+    </section-->
+    <div class="horizontal-card">
+        <div class="card abouts topcard">
+            <div ng-hide="edit.mainInfoPr">
+                <h1></h1>
+                <h1 ng-if="(lang=='en' && parent.firstNameEn)||(lang=='he' && !parent.firstNameHe)">{{parent.firstNameEn}} {{parent.lastNameEn}}</h1>
+                <h1 ng-if="(lang=='he' && parent.firstNameHe)||((lang=='en' && !parent.firstNameEn))">{{parent.firstNameHe}} {{parent.lastNameHe}}</h1>
+            </div>
+            <names person="parent" lang="lang" ng-show="edit.mainInfoPr"></names>
+            <div>
+                <span ng-hide="edit.mainInfoPr">
+                    <h3>{{::"I_LIVE_IN" | translate}}:</h3>{{getName("City", parent.city, lang)}}
+                    <span ng-show="parent.neighborhood">, {{getNeighborhoodName(parent.city, parent.neighborhood, lang)}}</span><br/>
+                </span>
+                <location person="parent" ng-show="edit.mainInfoPr"></location>
+            </div>
+            <div>
+                <span ng-hide="edit.mainInfoPr">
+                    <h3>{{::"WITH" | translate}}: </h3>{{parent.numberOfChildren}} {{::"CHILD" | translate}}<span ng-hide="parent.numberOfChildren == 1">{{::"PLURAL" | translate}}</span>
+                </span>
+                <kids ng-show="edit.mainInfoPr"></kids>
+            </div>
+            <button class="pencil-edit" type="button" class="btn btn-sm" ng-show="edit && (cardOpen=='none'||cardOpen=='mainInfoPr')" ng-click="editMode('mainInfoPr')"><img ng-src="{{edit.mainInfoPr? '../images/buttons/save.png':'../images/buttons/edit.png'}}"/></button>
+        </div>
+        <div class="card abouts">
+            <h3>{{::"CONTACT_INFO_HEADER" | translate}}</h3>
+            <div>
+                <div>{{::'MOBILE' | translate}}:<span ng-hide="edit.contactInfoPr"> {{parent.phoneNumberPrefix}}<span ng-show="parent.phoneNumberPrefix">-</span>{{parent.phoneNumberSuffix}}</span></div>
+                <contact-details person="parent" mobile-only=true ng-show="edit.contactInfoPr"></contact-details>
+                {{::'EMAIL' | translate}}:<span ng-hide="edit.contactInfoPr"> {{parent.secondEmail}}</span><br/>
+                <input name="myEmail" ng-model="parent.secondEmail" ng-show="edit.contactInfoPr">
+            </div>
+            <button class="pencil-edit" type="button" class="btn btn-sm" ng-show="edit && (cardOpen=='none'||cardOpen=='contactInfoPr')" ng-click="editMode('contactInfoPr')"><img ng-src="{{edit.contactInfoPr? '../images/buttons/save.png':'../images/buttons/edit.png'}}"/></button>
+        </div>
+        <div class="card abouts">
+            <h3>{{::"ABOUT_US" | translate}}</h3>
+            <div ng-hide="edit.aboutUs">{{parent.aboutUs}}</div>
+            <div ng-show="edit.aboutUs"><textarea name="aboutUsText" ng-model="parent.aboutUs" required></textarea></div>
+            <button class="pencil-edit" type="button" class="btn btn-sm" ng-show="edit && (cardOpen=='none'||cardOpen=='aboutUs')" ng-click="editMode('aboutUs')"><img ng-src="{{edit.aboutUs? '../images/buttons/save.png':'../images/buttons/edit.png'}}"/></button>
+        </div>
+        <div class="card abouts">
+            <h3>{{::"REQUIREMENTS" | translate}}</h3>
+            <div ng-hide="edit.requirements">{{parent.generalRequirements}}</div>
+            <div ng-show="edit.requirements"><textarea name="requirementsText" ng-model="parent.generalRequirements"></textarea></div>
+            <button class="pencil-edit" type="button" class="btn btn-sm" ng-show="edit && (cardOpen=='none'||cardOpen=='requirements')" ng-click="editMode('requirements')"><img ng-src="{{edit.requirements? '../images/buttons/save.png':'../images/buttons/edit.png'}}"/></button>
+        </div>
+    </div>
+    <div id="add2" class="vertical-card"></div>
+    <button class="btn btn-small btn-main"><a ng-href="#/sitters/{{lang}}">{{"SEARCH" | translate}}</a></button>
+    <script type="text/javascript">
+      postscribe('#add2', '<div><script type="text/javascript" language="javascript" src="https://live.sekindo.com/live/liveView.php?s=77314&cbuster=[CACHE_BUSTER]&pubUrl=[PAGE_URL_ENCODED]&subId=[SUBID_ENCODED]&clkCbPub=[CLICK_TRACKER_ENCODED]"><\/script></div>');
+    </script>
+</div>

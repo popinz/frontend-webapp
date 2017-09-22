@@ -1,0 +1,25 @@
+<div class="login">
+    <div ng-if="sitter_api_ready && parent_api_ready">
+        <h1>{{'PASSWORD_RESET' | translate}}</h1>
+    <form name="siteResetPwd" ng-submit="vm.reset()" role="form" class="text-center signup-block">
+        <div ng-include="'site-login.html'" ng-if="showLogin"></div>
+        <div class="form-group" ng-class="{ 'has-error': siteResetPwd.password.$dirty && siteResetPwd.password.$error.required }">
+            <h3>{{'NEW_PASSWORD' | translate}}<span class="text-danger">*</span></h3>
+            <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required minlength=8 />
+            <span ng-show="siteResetPwd.password.$dirty && siteResetPwd.password.$error.required" class="help-block">{{'PASSWORD_REQUIRED' | translate}}</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': siteResetPwd.confirmPassword.$dirty && siteResetPwd.confirmPassword.$error.required }">
+            <h3>{{'CONFIRM_PASSWORD' | translate}}<span class="text-danger">*</span></h3>
+            <input type="password" name="confirmPassword" id="confirmPassword" class="form-control"
+                   ng-model="vm.confirmPassword"
+                   required compare-to="vm.password" />
+            <span ng-show="siteResetPwd.confirmPassword.$invalid && !siteResetPwd.confirmPassword.$pristine" class="error">{{'PASSWORD_DOES_NOT_MATCH' | translate}}</span>
+        </div>
+        <div class="form-actions">
+            <div>
+                <input class="btn btn-md btn-primary" type="submit" value="{{'RESET' | translate}}"  ng-submit="vm.reset()" ng-disabled="siteResetPwd.$invalid || siteResetPwd.confirmPassword.$invalid || vm.dataLoading"  ng-click="setTypeOfLogIn('mail')" class="button-link btn btn-md btn-secondary"  >
+            </div>
+        </div>
+    </form>
+</div>
+</div>

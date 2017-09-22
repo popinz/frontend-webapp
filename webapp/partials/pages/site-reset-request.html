@@ -1,0 +1,17 @@
+<div class="login text-center">
+    <div ng-if="sitter_api_ready && parent_api_ready">
+        <h1>{{'RESET_MY_PASSWORD' | translate}}</h1>
+        <form name="siteResetRequest" ng-submit="vm.resetRequest()" role="form" class="text-center signup-block">
+            <div class="form-group" ng-class="{ 'has-error': siteResetRequest.username.$dirty && siteResetRequest.username.$error.required }">
+                <h3>{{'EMAIL_OR_USERNAME' | translate}}<span class="text-danger">*</span></h3>
+                <input type="text" name="username" id="username" autocapitalize="none" class="form-control" ng-model="vm.username" required />
+                <span ng-show="siteResetRequest.username.$dirty && siteResetRequest.username.$error.required" class="help-block">Username is required</span>
+            </div>
+            <div class="form-actions">
+                <div>
+                    <input class="btn btn-md btn-primary" type="submit" value="{{'RESET' | translate}}"  ng-submit="vm.resetRequest()" ng-disabled="siteResetRequest.$invalid || vm.dataLoading"  ng-click="setTypeOfLogIn('mail')" class="button-link btn btn-md btn-secondary"  >
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

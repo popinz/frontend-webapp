@@ -1,0 +1,69 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+
+<div class="browse-sitters">
+    <div class="container-fluid">
+        <!-- Modal -->
+        <div class="modal fade" id="chooseYourCityModal" tabindex="-1" role="dialog" aria-labelledby="chooseYourCityModalLabel">
+            <div class="modal-dialog">
+                <form class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-center" id="chooseYourCityModalLabel">{{::"LOCATION_POPUP_HEADER" | translate}}</h3>
+                    </div>
+                    <div class="modal-body center-div">
+                        <!--h4 class="text-center">I live in</h4-->
+                        <location person="sitter" hide-city-header=true></location>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-md btn-primary center-block" ng-click="savePlace()">{{::'SAVE' | translate}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <h1 class="text-center">{{::"BROWSE_SITTERS_HEADER1" | translate}}</h1>
+        <h2 class="text-center">{{::"BROWSE_SITTERS_HEADER2" | translate}}</h2>
+        <h2 class="text-center">{{::"BROWSE_SITTERS_HEADER3" | translate}}</h2>
+        <form class="row" ng-submit="applyFilters()">
+            <section class="col-md-4">
+                <label>
+                    <label class="control control--radio">
+                        <input type="radio" name="searchRadio" value="location" ng-model="search" ng-change="disableSelects()"/>
+                        <div class="control__indicator"></div>
+                    </label>
+                    <h3 ng-show="search =='location'">{{::"LOCATION_FILTER_HEADER" | translate}}</h3>
+                    <h3 ng-show="search =='language'">{{::"LOCATION_FILTER_HEADER_UNCHECKED" | translate}}</h3>
+                </label><br/>
+                <location person="sitter" hide-city-header=true ng-hide="search =='language'"></location>
+            </section>
+            <section class="col-md-4">
+                <label>
+                    <label class="control control--radio">
+                        <input type="radio" name="searchRadio" value="language" ng-model="search" ng-change="disableSelects()"/>
+                        <div class="control__indicator"></div>
+                    </label>
+                    <h3 ng-show="search =='language'">{{::"LANG_FILTER_HEADER" | translate}}</h3>
+                    <h3 ng-show="search =='location'">{{::"LANG_FILTER_HEADER_UNCHECKED" | translate}}</h3>
+                </label>
+                <br/>
+                <select ng-hide="search == 'location'" ng-model="sitter.language"  ng-options="language.name as getText(language) for language in languages">
+                    <option value="">{{::'ANY_LANGUAGE' | translate}}</option>
+                </select>
+            </section>
+            <section class="col-md-2">
+                <button type="submit" class="btn-secondary">{{::"SEARCH" | translate}}</button>
+            </section>
+        </form>
+    </div>
+    <div infinite-scroll="getNextSitters()" infinite-scroll-distance='2' infinite-scroll-disabled="!sitters_loaded || busy">
+        <div class="alert alert-danger div-center text-center" ng-show="nooneFound">
+            {{"NO_RESULTS" | translate}}
+        </div>
+        <!--Mini-profile-->
+        <mini-profile id="{{ 'profile-' + sitter.id }}" class="babysitter-preview" ng-repeat="sitter in sitters">
+
+        </mini-profile>
+
+    </div>
+    <img class="progress-ring" ng-show="!sitters_loaded || busy" src="../images/progress.gif">
+</div>

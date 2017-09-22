@@ -1,0 +1,188 @@
+.profile{
+    .btn{
+        max-width:75%;
+        font-size: 19px;
+        padding-bottom: 38px;
+        height: 46px;
+        border-radius: 9px;
+    }
+    .help{
+        font-size: 17px;
+        color: grey;
+        width: 90%;
+        margin-bottom: 10px;
+        margin-left: 5px;
+    }
+    .language-alert{
+        width: 700px;
+        max-width: 100%;
+        text-align: center;
+    }
+    .alert-text{
+        color: $primary-color;
+    }
+    .card{
+        background-color: white;
+        border: ridge;
+        border-color: $primary-color-darker;
+        border-width: thin;
+        margin-top: 5px;
+        margin-bottom: 40px;
+        textarea{
+            height: 150px;
+            max-width: 100%;
+            width: 600px;
+        }
+        .alert-danger{
+            width:300px;
+            font-size: 17px;
+        }
+        .pencil-edit{
+            padding: 2px;
+            background-color: white;
+            border: double;
+            border-radius: 50%;
+            img{
+                height: 40px;
+            }
+            &:lang(en){
+                float:right;
+            }
+            &:lang(he){
+                float:left;
+            }
+
+        }
+    }
+    .horizontal-card{
+        width:700px;
+        max-width: 100%;
+        vertical-align: top;
+        display:inline-block;
+
+    }
+
+    .vertical-card{
+        width: 350px;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 10px;
+        display:inline-block;
+        @media screen and (max-width: 1200px) {
+           display:none;
+        }
+    }
+    .calendar-div{
+        margin-top:30px;
+        .availability-table{
+            margin-top: 10px;
+        }
+    }
+    .topcard{
+        padding: 0 20px 20px 20px;
+        h1, h3{
+            display: inherit;
+        }
+        .main-info{
+            > div{
+                display: inline-block;
+                margin: 10px;
+            }
+            .info-text{
+                vertical-align: middle;
+                max-width:400px;
+            }
+            .left_part{
+                position: relative;
+                vertical-align: top;
+                height: 260px;
+                img{
+                    height:200px;
+                    width:200px;
+                }
+                .btn-secondary{
+                    width: 200px;
+                    max-width: 100%;
+                    position: absolute;
+                    left: 4px;
+                    top: 217px;
+                }
+            }
+            @media only screen and (max-width: 	617px) {
+                .left_part{
+                    height:210px;
+                }
+                .check{
+                    display:block;
+                }
+                .info-text{
+                    margin-top: 40px;
+                }
+            }
+        }
+    }
+    .abouts{
+        padding: 5px 20px 20px 20px;
+        text-align : justify;
+        word-wrap: break-word;
+        h4{
+            display:inline;
+        }
+        @media only screen and (max-width: 	617px){
+            h4{
+                display:block;
+            }
+        }
+        .skill-preview{
+            width:auto;
+        }
+    }
+    input{
+        max-width: 75%;
+    }
+    .homework-preview{
+        height:70px;
+        margin: 0 auto;
+    }
+    .offering-preview{
+        height: 90px;
+        margin: 0 auto;
+    }
+    figure
+    {
+      width: 30%;
+      text-align: center;
+      display:inline-block;
+      margin-left:3%;
+      margin-bottom:3%;
+      vertical-align: top;
+    }
+
+    .kidsSection{
+        div{
+            display: inline-block;
+        }
+
+        select{
+            margin: 10px;
+        }
+
+        .add{
+            font-size: 40px;
+            cursor: pointer;
+        }
+    }
+    .contactMe{
+        display: inline-block;
+    }
+
+    .fileUpload{
+        margin: 10px 0 10px 0;
+    }
+
+    .btn-modal{
+        padding-bottom: 10px;
+    }
+}
+
+

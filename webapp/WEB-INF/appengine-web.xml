@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) Popinz.co, Babysitter JLM 2015.
+  -->
+
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <!-- application>myApplicationId</application -->
+    <!-- application>endpoint-1018</application -->
+    <application>popinz-alpha</application>
+    <version>1</version>
+    <threadsafe>true</threadsafe>
+
+    <system-properties>
+        <property name="java.util.logging.config.file" value="WEB-INF/logging.properties" />
+    </system-properties>
+    <resource-files>
+        <include path="/email/**.html" />
+        <include path="/email/**.png" />
+        <include path="/email/**.gif" />
+        <include path="/migration/**.csv" />
+        <!--
+        A placeholder read-only file to allow com.sun.jersey.multipart.impl.MultiPartReaderClientSide
+        objects to be created without exceptions beting thrown due to File.createTempFile("MIME", null).delete();
+        -->
+        <include path="/MIME" />
+    </resource-files>
+
+</appengine-web-app>

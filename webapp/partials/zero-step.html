@@ -1,0 +1,40 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+
+<form id="signupForm" ng-submit="chooseNextStep()" class="text-center signup-block">
+    <h1>{{"HEADER_START" | translate}}</h1>
+    <div>
+        <div id="userType">
+            <label>
+                <label class="control control--radio">
+                    <input type="radio" name="accountTypeRadio" value="parent" ng-model="$root.accountType" required/>
+                    <div class="control__indicator"></div>
+                </label>
+                {{"I_AM_A" | translate}}{{"PARENT"|translate}}
+            </label>
+            <label>
+                <label class="control control--radio">
+                    <input type="radio" name="accountTypeRadio" value="sitter" ng-model="$root.accountType" required/>
+                    <div class="control__indicator"></div>
+                </label>
+                {{"I_AM_A" | translate}}{{"SITTER"|translate}}
+            </label>
+        </div>
+        <div>
+            <label class="control control--checkbox">
+                <input type="checkbox" ng-model="agreedToTerms" required/>
+                <div class="control__indicator"></div>
+            </label>
+            {{'I_AGREE_TO' | translate}}<a target="_blank" href="https://blog.popinz.co/terms-of-service/">{{'TERMS' | translate}}</a>
+        </div>
+    </div>
+
+    <div class="buttons-div">
+        <div ng-controller="facebookLoginCtrl"><input id="facebookSignupButton" class="btn btn-md btn-secondary" type="submit" value="{{'FB_SIGNUP' | translate}}" ng-click="setTypeOfSignUp('fb')" ></div>
+        <input id="siteSignupButton" type="submit" value="{{'MAIL_SIGNUP' | translate}}" ng-submit="chooseNextStep()" class="button-link" ng-click="setTypeOfSignUp('mail')" >
+        <div><a ng-href="#/login/{{lang}}" class="btn btn-link">{{'LOGIN' | translate}}</a></div>
+    </div>
+</form>
+
+

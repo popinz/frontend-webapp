@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) Popinz.co, Babysitter JLM 2016.
+  -->
+<!--[if IE]>
+	<style type="text/css">
+		body:lang(he) { font-family: sans-serif; }
+	</style>
+<![endif]-->
+
+<html lang={{lang}}  ng-app="babysit">
+<!-- ng-strict-di-->
+<head>
+
+	<!-- Basic Page Needs
+	================================================== -->
+	<meta charset="utf-8">
+	<title>Popinz</title>
+	<meta name="description" content="popinz">
+	<meta name="author" content="loa.alan@gmail.com">
+
+	<!-- Mobile Specific Metas
+	================================================== -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+	
+	<!-- CSS
+	================================================== -->
+	<!-- Base + Vendors CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fonts/font-awesome/css/font-awesome.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Arimo&amp;subset=hebrew" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Rubik&amp;subset=hebrew" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/fonts/entypo/css/entypo.css">
+	<link rel="stylesheet" href="css/fonts/OpenSansHebrew/css/OpenSansHebrew.css">
+	<link rel="stylesheet" href="css/fonts/banksia/banksiaregular.css">
+	<link rel="stylesheet" href="css/fonts/alegreya/alegreya_sansregular.css">
+
+    <!-- Babysitter CSS-->
+	<link rel="stylesheet" href="css/popinz.min.css">
+
+  <!-- Head Libs -->
+	<script src="vendor/modernizr.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="vendor/respond.min.js"></script>
+	<![endif]-->
+
+	<!--[if IE]>
+		<link rel="stylesheet" href="css/ie.css">
+	<![endif]-->
+	
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/favicon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/favicon.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/favicon.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/favicon.png">
+
+	<script src="vendor/jquery-1.11.0.min.js"></script>
+	<!-- google sheets script -->
+	<!--script data-cfasync="false" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
+
+	<!-- Hotjar Tracking Code for https://popinz.co -->
+	<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:311262,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+
+</head>
+<body class="boxed ng-cloak" data-spy="scroll" data-target=".navbar-custom" ng-cloak>
+
+	<div ng-controller="babysitCtrl" class="site-wrapper site-wrapper__boxed" dir={{default_direction}}>
+
+		<!-- Header -->
+        <header-alpha></header-alpha>
+		<!-- Header / End -->
+
+		<!-- Main -->
+		<div class="main" role="main">
+			<div ng-view></div>
+		</div>
+		<!-- Main / End -->
+		<!-- Footer -->
+        <footer-alpha></footer-alpha>
+	</div>
+
+	<!-- Javascript Files
+	================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>	
+
+	<script src="vendor/jquery-migrate-1.2.1.min.js"></script>
+	<script src="vendor/bootstrap.js"></script>
+
+	<script src="vendor/ng-infinite-scroll.min.js"></script>
+    <script src="vendor/ng-file-upload.min.js"></script>
+    <script src="vendor/ng-img-crop.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/postscribe/2.0.6/postscribe.min.js"></script>
+
+	<script src="js/popinz.min.js"></script>
+	<script type="text/javascript">
+    	function initGAE() {
+        	window.init();
+    	}
+	</script>
+	<script src="https://apis.google.com/js/client.js?onload=initGAE"></script>
+</body>
+</html>

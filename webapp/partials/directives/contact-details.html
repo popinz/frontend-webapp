@@ -1,0 +1,23 @@
+<div ng-if="!mobileOnly"><h3>{{'STREET' | translate}}</h3>
+    <input type="text" ng-model="person.street" size="30">
+</div>
+
+<div ng-if="!mobileOnly"><h3>{{'HOUSE_NUMBER' | translate}}</h3>
+    <input type="number" ng-model="person.homeNumber" size="30" min=1>
+</div>
+
+<div>
+    <h3 ng-if="!mobileOnly">{{'MOBILE' | translate}}<span class="text-danger">*</span></h3>
+    <div dir="ltr">
+        <select name="prefixSelect" ng-model="person.phoneNumberPrefix" ng-required="person.phoneNumberSuffix">
+            <option value="" selected></option>
+            <option>050</option>
+            <option>052</option>
+            <option>053</option>
+            <option>054</option>
+            <option>055</option>
+            <option>058</option>
+        </select>
+        <input name="suffixInput" ng-model="person.phoneNumberSuffix" type="text" maxlength="9" style="width:150px;" required>
+    </div>
+</div>

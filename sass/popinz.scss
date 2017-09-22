@@ -1,0 +1,347 @@
+//primary-color and its shades
+$primary-color: #C343C0;
+$primary-color-darker: #8c3b77;
+$primary-contrast: white;
+$primary-contrast-darker: white;
+
+//secondary-color and its shades
+$secondary-color: #2d79be;
+$secondary-color-darker: #1a476f;
+$secondary-color-dark: #07334B;
+$secondary-contrast: white;
+$secondary-contrast-darker: white;
+
+
+$text-primary-color:#07334B;
+$text-secondary-color:#2D79BE;
+
+//fonts
+$font-hebrew-body: 'Open Sans Hebrew', sans-serif;
+$font-hebrew-header: 'Open Sans Hebrew', sans-serif;
+$font-english-body: 'Open Sans', sans-serif;
+$font-english-header: 'Open Sans', sans-serif;
+
+//fonts and headers
+
+body{
+    font-size: 24px;
+    color: $text-primary-color;
+    html.ie &{
+        font-family:sans-serif;
+    }
+    &:lang(en){
+        font-family: $font-english-body;
+    }
+    &:lang(he){
+        font-family: $font-hebrew-body;
+    }
+}
+h1,h2{
+    &:lang(en){
+        font-family: $font-english-header;
+    }
+    &:lang(he){
+        font-family: $font-hebrew-header;
+    }
+}
+h3, h4{
+    &:lang(en){
+        font-family: $font-english-body;
+    }
+    &:lang(he){
+        font-family: $font-hebrew-body;
+    }
+    color: $text-secondary-color;
+    margin:5px;
+}
+
+h1{
+    color: $text-primary-color;
+    font-size: 32px;
+}
+
+h2{
+    color: $text-secondary-color;
+}
+
+h3{
+   font-size:22px;
+}
+h4{
+    font-size:20px;
+}
+
+img{
+    max-width:100%;
+}
+//buttons
+
+.btn-main{
+    font-size: 42px;
+    border-radius: 50px;
+    color: white;
+    background-color: $primary-color;
+    border: 1px solid white;
+    text-decoration: none;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    &:hover{
+        color:white;
+        background-color: $primary-color-darker;
+        border: 1px solid white;
+    }
+}
+
+.btn-secondary{
+    color: white;
+    background-color: $secondary-color;
+    border: 1px solid white;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:hover{
+        color: white;
+        background-color: $secondary-color-darker;
+        border: 1px solid white;
+        transition: background-color .7s ease;
+        transform: scale(1.1);
+    }
+}
+
+.div-center{
+    margin: 0 auto;
+}
+
+a{
+    color:$secondary-color;
+    cursor:pointer;
+    text-decoration:underline;
+    &:hover{
+        color:$secondary-color-darker;
+    }
+}
+
+label{
+    font-weight: normal;
+    padding-bottom: 3px;
+}
+
+//inputs
+input{
+  border-style: ridge;
+  max-width:90%;
+}
+
+.ng-invalid.ng-dirty, .ng-invalid.ng-touched, .invalid{
+  border-color:red;
+}
+
+.ng-valid.ng-dirty{
+  border-color:initial;
+}
+
+.text-info{
+    color: $text-secondary-color;
+}
+
+//checkboxes and radio buttons
+
+.control {
+	font-size: 18px;
+	position: relative;
+	display: inline-block;
+	margin-bottom: 15px;
+	padding-left: 30px;
+	cursor: pointer;
+	input {
+    	position: absolute;
+    	z-index: -1;
+    	opacity: 0;
+    	//focus state
+    	&:focus ~ .control__indicator{
+            background: #ccc;
+        }
+        //checked state
+        &:checked ~ .control__indicator{
+            background: $secondary-color;
+            //show check mark
+            &:after{
+                display: block;
+            }
+        }
+        //disabled state
+        &:disabled ~ .control__indicator {
+        	pointer-events: none;
+            visibility:hidden;
+        }
+
+        &:checked:disabled ~ .control__indicator{
+            visibility:visible;
+            background: $secondary-color-darker !important;
+            width: 10px;
+            height: 10px;
+            //show check mark
+            &:after{
+                visibility: hidden;
+            }
+        }
+    }
+    //Hover state
+    &:hover input
+    {
+        & ~ .control__indicator{
+            background: #ccc;
+        }
+        // Hover state whilst checked
+        &:not([disabled]):checked ~ .control__indicator{
+            background: $secondary-color-darker;
+        }
+    }
+}
+
+.control__indicator {
+	position: absolute;
+	left: 7px;
+	width: 20px;
+	height: 20px;
+	background: #e6e6e6;
+	.control--round &{
+	     border-radius: 50%;
+	}
+	.control--radio &{
+	    border-radius: 50%;
+	    &:after{
+	        top: 7px;
+            left: 7px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #fff;
+	    }
+	}
+	.control--radio input:disabled ~ &{
+	    &:after{
+	        background: #7b7b7b;
+	    }
+	}
+	//check mark
+	&:after {
+     	position: absolute;
+     	display: none;
+     	content: '';
+     	/*.control--checkbox input:disabled ~ &{
+     	    border-color: #7b7b7b;
+     	}*/
+     	//checkbox tick
+     	.control--checkbox &{
+     	    top: 5px;
+            left: 8px;
+            width: 6px;
+            height: 8px;
+            transform: rotate(45deg);
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+     	}
+     }
+}
+
+.page-wrapper{
+    margin: 3%;
+}
+
+.anotherLanguagePart{
+    &:lang(he){
+        font-family: $font-english-body;
+    }
+    &:lang(en){
+        font-family: $font-hebrew-body;
+    }
+    h3, h4{
+        &:lang(he){
+            font-family: $font-english-body;
+        }
+        &:lang(en){
+            font-family: $font-hebrew-body;
+        }
+    }
+}
+
+/*.modal{
+    overflow-y: hidden;
+    .modal-dialog{
+        overflow-y: initial !important;
+        .modal-body{
+            max-height: 500px;
+            overflow-y: auto;
+        }
+    }
+}*/
+
+.cross{
+    cursor : pointer;
+    position: absolute;
+    top: 5px;
+    &:lang(en){
+        right: 10px;
+    }
+    &:lang(he){
+        left: 10px;
+    }
+}
+
+.progress{
+    height: 35px;
+    .progress-bar{
+        width: 0%;
+        padding-top: 7px;
+        background-color: $secondary-color-dark;
+    }
+}
+
+.login{
+    margin: 0 auto;
+    width: 500px;
+    max-width: 90%;
+    .btn-secondary{
+        width:225px;
+    }
+    form[name="fb-login"]{
+        margin-top:20px;
+    }
+}
+
+.button-link{
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    color: $secondary-color;
+    text-decoration: underline;
+    &:hover{
+        color:$secondary-color-darker;
+    }
+}
+
+.highlight{
+    color: $primary-color !important;
+}
+
+figcaption{
+    font-size: 18px;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+@import 'signup';
+@import 'calendar';
+@import 'browse-sitters';
+@import 'sitter-profile';
+@import 'frontpage';
+@import 'header-front';
+@import 'footer-members';
+@import 'cross-browser';
+@import 'parent-profile';

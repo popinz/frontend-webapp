@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+    <cron>
+        <url>/cron/reset</url>
+        <target>popinz-alpha</target>
+        <description>daily reset password job</description>
+        <schedule>every 24 hours</schedule>
+    </cron>
+</cronentries>
