@@ -1,0 +1,42 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+
+<h1 class="text-center">{{"CONTACT_SITTER" | translate}}</h1>
+<div class="wrapper-centered">
+    <form id="contactForm" class="div-centered" ng-submit="contactSitter()">
+        <div id="userType" class="text-center margin-bottom-20">
+            <div class="inline">
+                <label class="control control--checkbox">
+                    <input type="checkbox" name="contactSitterCheckbox" value="email" ng-model="accountType" checked=true required/>
+                    <div class="control__indicator"></div>
+                </label>
+                {{"CONTACT_BY_EMAIL" | translate}}
+            </div>
+            <div class="inline">
+                <label class="control control--checkbox">
+                    <input type="checkbox" name="contactSitterCheckbox" value="phone" ng-model="accountType" required/>
+                    <div class="control__indicator"></div>
+                </label>
+                {{"CONTACT_BY_PHONE" | translate}}
+            </div>
+        </div>
+        <div class="text-center margin-bottom-20">
+            <label class="control control--checkbox">
+                <input type="checkbox" ng-model="agreedToTerms" required/>
+                <div class="control__indicator"></div>
+            </label>
+            I agree to <a>terms of service</a>
+        </div>
+
+
+
+        <div class="buttons-div">
+            <div class="margin-top-10">
+                <input type="submit" value="Contact Sitter" ng-submit="contactSitter()" class="link button-link" ng-click="setContactMethod('phone')" >
+            </div>
+        </div>
+    </form>
+</div>
+
+

@@ -1,0 +1,14 @@
+<!--Mini-profile-->
+<div>
+    <div class="profile-mini-pic"><a href="" ng-click="redirect(sitter)"><img ng-src="{{sitter.img!==undefined?'data:image/png;base64,'+sitter.img:'../images/placeholders/userpic.png'}}" class="center-block img-responsive img-thumbnail" ></a></div>
+    <h2 class="text-center">{{getMiniName(sitter, true)}}<span ng-show="sitter.age">., {{sitter.age}}</span></h2>
+    <h3 class="text-center" style="display: inherit">{{getLocation(sitter)}}</span></h3>
+    <div dir="ltr" class="text-justify vertical-padding mini-about" ng-if="(lang == 'en' && sitter.aboutMeEn) || (lang=='he' && !sitter.aboutMeHeb)">{{sitter.aboutMeEn}}</div>
+    <div dir="rtl" class="text-justify vertical-padding mini-about" ng-if="(lang == 'he' && sitter.aboutMeHeb) || (lang == 'en' && !sitter.aboutMeEn)">{{sitter.aboutMeHeb}}</div>
+    <p class="text-center"><a href="" ng-click="redirect(sitter)">{{getLinkText()}}</a></p>
+    <section id="icons-footer">
+        <figure class="skill-preview" ng-repeat="skill in sitter.skills" title="{{::getName('Skills', skill, lang)}}" data-toggle="tooltip" data-placement="top" tooltip>
+            <img ng-src="../images/skills/active/{{skill}}.png" class="img-responsive">
+        </figure>
+    </section>
+</div>

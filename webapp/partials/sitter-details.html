@@ -1,0 +1,118 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+
+<form ng-if="sitterDetails.currentStep == 1" ng-submit="createProfile()" class="text-center signup-block" name="sitterSignupForm">
+    <div ng-if="sitterDetails.confirm === undefined">
+        <div>
+            <h1>{{'HEADER_1' | translate}}</h1>
+            <names person="sitter" lang="lang"></names>
+            <div ng-class="{ 'has-error' : sitterSignupForm.email.$invalid && !sitterSignupForm.email.$pristine }">
+                <h3>{{'EMAIL' | translate}}<span class="text-danger">*</span></h3>
+                <input name="email" ng-model="sitter.email" type="email" size="30" required>
+                <p ng-show="sitterSignupForm.email.$invalid && !sitterSignupForm.email.$pristine" class="help-block">{{'VALID_EMAIL' | translate}}</p>
+            </div>
+            <div ng-if="showPass" ng-class="{ 'has-error' : sitterSignupForm.password.$invalid && !sitterSignupForm.password.$pristine }">
+                <h3>{{'PASSWORD' | translate}}<span class="text-danger">*</span></h3>
+                <div class="help">{{'PASSWORD_HELP' | translate}}</div>
+                <input name="password" ng-model="sitter.password" type="password" size="30" pattern={{passwordPattern}} required>
+                <p ng-show="sitterSignupForm.password.$invalid && !sitterSignupForm.password.$pristine" class="help-block">{{'VALID_PASSWORD' | translate}}</p>
+            </div>
+            <div><h3>{{'HOW_HEARD' | translate}}</h3>
+                <select ng-model="sitter.howHeard">
+                <option ng-repeat="howHeard in howHeards" ng-value="howHeard.name">{{getText(howHeard)}}</option>
+            </select>
+            </div>
+        </div>
+        <div class="buttons-div">
+            <input type="submit" class="btn btn-small btn-main" id="getStartedButton" value="{{'GET_STARTED_BTN' | translate}}">
+        </div>
+    </div>
+
+    <div ng-if="sitterDetails.confirm !== undefined">
+        <h1>{{'EMAIL_CONFIRM_SENT' | translate}}</h1>
+        <h3>{{'CONFIRMATION_CODE' | translate}}<span class="text-danger">*</span></h3>
+        <input type="text" name="confirm" ng-model="sitter.confirm"  />
+        <div class="buttons-div">
+            <input type="submit" class="btn btn-small btn-main" id="getStartedButton" value="{{'CONFIRM' | translate}}">
+        </div>
+    </div>
+
+    <!--div class="welcome-text">
+        <h4>{{"SITTER_INFO_TEXT_HEADER1" | translate}}<br/>
+            {{"SITTER_INFO_TEXT_HEADER2" | translate}}<br/>
+            {{"SITTER_INFO_TEXT_HEADER3" | translate}}<br/>
+        </h4>
+        <p>{{"SITTER_INFO_TEXT1" | translate}}<br/>
+            {{"SITTER_INFO_TEXT2" | translate}}
+        </p>
+    </div-->
+</form>
+
+
+
+<form ng-if="sitterDetails.currentStep>1 && !sitterDetails.skip" ng-submit="updateSitterProfile()"  class="text-center signup-block">
+
+    <!-- SECOND STEP-->
+    <div ng-if="sitterDetails.currentStep === 2">
+        <h1>{{'HEADER_2' | translate}}<span class="text-danger">*</span></h1>
+        <upload-image></upload-image>
+    </div>
+
+    <!-- THIRD STEP-->
+    <div ng-if="sitterDetails.currentStep === 3">
+        <h1>{{'HEADER_3' | translate}}</h1>
+        <h2>{{'HEADER_3a' | translate}}</h2>
+        <location person="sitter" location-required=true></location>
+        <contact-details person="sitter"></contact-details>
+    </div>
+
+    <!-- FORTH STEP -->
+
+    <div ng-if="sitterDetails.currentStep === 4">
+        <h1>{{'HEADER_4' | translate}}</h1>
+        <div>
+            <personal-details></personal-details>
+            <about-me></about-me>
+        </div>
+    </div>
+
+    <!-- FIFTH STEP-->
+    <div ng-if="sitterDetails.currentStep === 5">
+        <h1>{{'HEADER_5' | translate}}</h1>
+        <experience-text></experience-text>
+        <experience-check></experience-check>
+
+        <skills-check></skills-check>
+        <offerings-check></offerings-check>
+    </div>
+
+    <!-- SIXTH STEP-->
+    <div ng-if="sitterDetails.currentStep === 6">
+        <h1>{{'HEADER_6' | translate}}</h1>
+        <h3>{{'HEADER_6a' | translate}}</h3>
+        <job-types></job-types>
+        <h3>{{'AVAILABILITY_HEADER' | translate}}</h3>
+        <availability-calendar schedule="sitter.schedule" calendarValidUntil="sitter.calendarValidUntil"></availability-calendar>
+    </div>
+
+    <!-- SEVENTH STEP-->
+    <div ng-if="sitterDetails.currentStep === 7">
+        <h1>{{'HEADER_7' | translate}}</h1>
+        <h2>{{'HEADER_7a' | translate}}</h2>
+
+        <choose-neighborhood></choose-neighborhood>
+        <choose-cities></choose-cities>
+    </div>
+
+    <!-- EIGHTH STEP -->
+    <div ng-if="sitterDetails.currentStep === 8||sitter.signUpStage === 'COMPLETED'">
+        <h1>{{'HEADER_8' | translate}}</h1>
+        <lang-check></lang-check>
+    </div>
+
+    <div id="sitterUpdateButtons" class="buttons-div" ng-hide="sitter.signUpStage === 'COMPLETED'">
+        <input id="updateSitterSkillsButton" type="submit" class="btn btn-md btn-main" value="{{'NEXT' | translate}}">
+        <a ng-click="skipSignup()" class="button-link">{{'SAVE_AND_RETURN' | translate}}</a>
+    </div>
+</form>

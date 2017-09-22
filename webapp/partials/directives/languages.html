@@ -1,0 +1,77 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+<div>
+    <div class="wide-lines">
+        <span ng-repeat="language in languages" class="check">
+            <label>
+                <label class="control control--checkbox">
+                    <input type="checkbox" ng-model="language.checked" ng-checked="lang == language.code" ng-change="showAnotherlanguageProfile(language)"/>
+                    <div class="control__indicator"></div>
+                </label>
+                {{getText(language)}}
+            </label>
+            <br ng-show={{($index+1)%4==0}}>
+        </span>
+    </div>
+    <div ng-show="toShowAnotherlanguageProfile" class="anotherLanguagePart">
+        <div ng-if="!anotherLanguageProfileCreated">
+            <p class="text-info"><span ng-if="checkedLanguage.code==='he'">!</span>{{'LANGUAGE_ALERT_1' | translate : checkedLanguage.code}}<br>
+                {{'LANGUAGE_ALERT_2' | translate : checkedLanguage.code}}<br>
+                {{'LANGUAGE_ALERT_3' | translate : checkedLanguage.code}}
+            </p></div>
+        <div ng-if="anotherLanguageProfileCreated">{{'PROFILE_CREATED' | translate : checkedLanguage.code}}</div>
+        <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#hebrewProfileModal">
+            <span ng-if="!anotherLanguageProfileCreated">{{'CREATE_PROFILE' | translate : checkedLanguage.code}}{{'IN' | translate : checkedLanguage.code}}{{getText(checkedLanguage, checkedLanguage.code)}}</span>
+            <span ng-if="anotherLanguageProfileCreated">{{'EDIT' | translate : checkedLanguage.code}}</span>
+        </button>
+    </div>
+    <div class="modal fade text-center anotherLanguagePart" id="hebrewProfileModal" tabindex="-1" role="dialog" aria-labelledby="hebrewProfileLabel" >
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" dir={{opposite_direction}}>
+                <div class="modal-header">
+                    <h3 class="modal-title" id="hebrewProfileLabel">{{'CREATE_PROFILE' | translate : checkedLanguage.code}}{{'IN' | translate : checkedLanguage.code}}{{getText(checkedLanguage, checkedLanguage.code)}}</h3>
+                    <div class="cross" data-dismiss="modal">&#x2715</div>
+                </div>
+                <div id="content" class="modal-body">
+                    <form id="anotherLanguageProfileForm" ng-submit="profileCreated()">
+                    <div><h4>{{'FIRST_NAME' | translate : checkedLanguage.code}} <span class="text-danger">*</span></h4>
+                        <input ng-if="lang == 'en'" type="text" ng-model="sitter.firstNameHe" required>
+                        <input ng-if="lang == 'he'" type="text" ng-model="sitter.firstNameEn" required>
+                    </div>
+                    <div><h4>{{'LAST_NAME' | translate : checkedLanguage.code}}
+                        <span class="text-danger">*</span></h4>
+                        <input ng-if="lang == 'en'" type="text" ng-model="sitter.lastNameHe" required>
+                        <input ng-if="lang == 'he'" type="text" ng-model="sitter.lastNameEn" required>
+                    </div>
+                    <div><h4>{{'ABOUT_ME' | translate : checkedLanguage.code}}
+                        <span class="text-danger">*</span></h4>
+                        <div class="help">{{'ABOUT_ME_HELP' | translate : checkedLanguage.code}}</div>
+                        <div id="aboutMeAlert" ng-show="aboutMe2Invalid && ((sitter.aboutMeHeb.length >= textareaMinLength && sitter.aboutMeEn.length<textareaMinLength)||
+                                                (sitter.aboutMeEn.length >= textareaMinLength && sitter.aboutMeHeb.length<textareaMinLength))" class="alert alert-danger">
+                            {{'SHORT_ALERT' | translate : checkedLanguage.code}}
+                        </div>
+                        <textarea ng-if="lang == 'en'" ng-model="sitter.aboutMeHeb" required></textarea>
+                        <textarea ng-if="lang == 'he'" ng-model="sitter.aboutMeEn" required></textarea>
+                    </div>
+                    <div><h4 class="form-header">{{'EXPERIENCE_TEXT' | translate : checkedLanguage.code}}
+                        <span class="text-danger">*</span></h4>
+                        <div class="help">{{'EXPERIENCE_TEXT_HELP' | translate : checkedLanguage.code}}</div>
+                        <div  ng-show="experience2Invalid && ((sitter.experienceStringHeb.length >= textareaMinLength && sitter.experienceStringEn.length<textareaMinLength)||
+                                                (sitter.experienceStringEn.length >= textareaMinLength && sitter.experienceStringHeb.length<textareaMinLength))" class="alert alert-danger">
+                            {{'SHORT_ALERT' | translate : checkedLanguage.code}}
+                        </div>
+                        <textarea ng-if="lang == 'en'" ng-model="sitter.experienceStringHeb" required></textarea>
+                        <textarea ng-if="lang == 'he'" ng-model="sitter.experienceStringEn" required></textarea>
+                    </div>
+                        <div class="buttons-div">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="cancel()">{{'CANCEL' | translate : checkedLanguage.code}} </button>
+                            <input type="submit" class="btn btn-main" value="{{'CREATE_PROFILE' | translate : checkedLanguage.code}}">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

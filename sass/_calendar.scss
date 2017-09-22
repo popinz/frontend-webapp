@@ -1,0 +1,18 @@
+.availability-table{
+    border:double;
+    border-color:$secondary-color-darker;
+    margin-top:30px;
+    & > thead > tr > th, & > thead > tr > td{
+        font-size: 18px;
+        font-weight: 500;
+    }
+    & > tbody > tr > td{
+        vertical-align: middle;
+        &.active{
+            background-color:white;
+        }
+        /*&.success{
+            background-color:#F7D357;
+        }*/
+    }
+}

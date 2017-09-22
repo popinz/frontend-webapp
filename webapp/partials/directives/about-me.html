@@ -1,0 +1,9 @@
+<div><h3>{{'ABOUT_ME' | translate}}<span class="text-danger">*</span></h3>
+    <div class="help">{{'ABOUT_ME_HELP' | translate}}</div>
+    <div ng-if="aboutMeInvalid && ((!sitter.aboutMeHeb && sitter.aboutMeEn.length<textareaMinLength)||
+                                                (!sitter.aboutMeEn && sitter.aboutMeHeb.length<textareaMinLength))" class="alert alert-danger">
+        {{'SHORT_ALERT' | translate}}
+    </div>
+    <textarea ng-if="lang == 'en'" ng-model="sitter.aboutMeEn" required></textarea>
+    <textarea ng-if="lang == 'he'" ng-model="sitter.aboutMeHeb" required></textarea>
+</div>

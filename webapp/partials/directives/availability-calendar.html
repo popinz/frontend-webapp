@@ -1,0 +1,39 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+<div>
+    <div ng-hide="view || (edit && !edit.calendar)">
+        <h3>{{'CALENDAR_VALID' | translate}}</h3>
+        <input type="date" ng-model="calendarValidUntil"  min="{{today | date: 'yyyy-MM-dd'}}">
+    </div>
+    <div class="help" ng-hide="view">{{'AVAILABILITY_HELP' | translate}}</div>
+</div>
+<div class="table-responsive">
+    <table class="table table-condensed table-bordered availability-table text-center">
+        <thead>
+        <tr>
+            <th bgcolor="white"></th>
+            <th class="text-center">{{'SUNDAY' | translate}}</th>
+            <th class="text-center">{{'MONDAY' | translate}}</th>
+            <th class="text-center">{{'TUESDAY' | translate}}</th>
+            <th class="text-center">{{'WEDNESDAY' | translate}}</th>
+            <th class="text-center">{{'THURSDAY' | translate}}</th>
+            <th class="text-center">{{'FRIDAY' | translate}}</th>
+            <th class="text-center">{{'SATURDAY' | translate}}</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="time in times">
+                <td class="text-center">{{time.text}}<br>
+                    <span class="help">({{time.startTime}}:00-{{time.endTime}}:00)</span>
+                </td>
+                <td ng-repeat="weekday in time.weekdays" ng-class="{'success':weekday.checked, 'active':!weekday.checked}"}>
+                    <label class="control control--checkbox control--round inline-control">
+                        <input type="checkbox" ng-model="weekday.checked" ng-disabled="view || (edit && !edit.calendar)" />
+                        <div class="control__indicator"></div>
+                    </label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,61 @@
+<div class="modal fade text-center" id="contactSitterModal" tabindex="-1" role="dialog" aria-labelledby="contactSitterModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title text-center" id="photoModalLabel">{{::"CONTACT_HEADER" | translate}} {{getFirstName(sitter)}}</h2>
+                <div class="cross" data-dismiss="modal">&#x2715</div>
+            </div>
+            <div class="modal-body">
+                <form id="contactSitterForm" ng-submit="submit()" name="contactSitterForm">
+                    {{getFirstName(sitter)}} {{::"CONTACT_FORM_INFO_TEXT" | translate}}
+                    <names person="parent" lang="lang"></names>
+                    <location person="parent" location-required=true></location>
+                    <h3>{{::"CONTACT_ME_BY" | translate}}:<span class="text-danger">*</span></h3>
+                    <div id="noContactMethodAlert" ng-show="noContactMethod && !contactMe.email && !contactMe.phone" class="div-center alert alert-danger">{{"CONTACT_METHOD_ALERT" | translate}}</div>
+                    <div ng-class="{'contactMe' : !contactMe.email}">
+                        <label class="control control--checkbox">
+                            <input name="phone" type="checkbox" ng-model="contactMe.phone"/>
+                            <div class="control__indicator"></div>
+                        </label>
+                        {{::'MOBILE' | translate}}
+                        <contact-details person="parent" mobile-only=true ng-if="contactMe.phone"></contact-details>
+                    </div>
+                    <div ng-class="{'contactMe' : !contactMe.phone}">
+                        <label class="control control--checkbox">
+                            <input name="email" type="checkbox" ng-model="contactMe.email"/>
+                            <div class="control__indicator"></div>
+                        </label>
+                        {{::'EMAIL' | translate}}<br/>
+                        <input name="myEmail" ng-if="contactMe.email" ng-model="parent.secondEmail" required>
+                    </div>
+                    <kids></kids>
+                    <h3>{{::"ABOUT_US" | translate}}<span class="text-danger">*</span></h3>
+                    <textarea name="aboutUsText" ng-model="parent.aboutUs" required></textarea>
+                    <h3>{{::"REQUIREMENTS" | translate}}</h3>
+                    <textarea name="requirementsText" ng-model="parent.generalRequirements"></textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" form="contactSitterForm" class="btn btn-md btn-main" value="{{::'SEND' | translate}}">
+                <!--button type="button" class="btn btn-md btn-secondary-modal" data-dismiss="modal">{{::'CANCEL' | translate}}</button-->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade text-center" id="successContactModal" tabindex="-1" role="dialog" aria-labelledby="successContactModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title text-center" id="successContactModalLabel">{{"CONTACT_HEADER" | translate}} {{getFirstName(sitter)}}</h2>
+                <div class="cross" data-dismiss="modal">&#x2715</div>
+            </div>
+            <div class="modal-body">
+                {{::"DETAILS_SENT_TO_1" | translate}}<span ng-show="lang=='en'">{{getFirstName(sitter)}}</span>
+                <span ng-show="lang=='he'">{{sitter.firstNameHe}}</span>{{"DETAILS_SENT_TO_2" | translate}}<span ng-show="contactMe.email">{{"EMAIL" | translate}}</span><span ng-show="contactMe.email && contactMe.phone">/</span><span ng-show="contactMe.phone">{{"PHONE_NUMBER" | translate}}</span>{{"DETAILS_SENT_TO_3" | translate}}
+            </div>
+            <div class="modal-footer">
+                <input data-dismiss="modal" class="btn btn-sm btn-main btn-modal" value="{{::'CONGRATS_BTN' | translate}}">
+            </div>
+        </div>
+    </div>
+</div>

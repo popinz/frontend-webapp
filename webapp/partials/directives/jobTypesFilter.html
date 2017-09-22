@@ -1,0 +1,14 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+<div>
+    <span ng-repeat="jobType in jobTypes" class="check">
+        <label>
+            <label class="control control--checkbox">
+                <input type="checkbox" ng-model="jobType.checked"/>
+                <div class="control__indicator"></div>
+            </label>
+            {{getText(jobType)}}
+        </label>
+    </span>
+</div>

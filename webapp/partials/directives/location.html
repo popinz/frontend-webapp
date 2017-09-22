@@ -1,0 +1,19 @@
+<div>
+    <div><h3 ng-hide="hideCityHeader">{{'CITY' | translate}}<span class="text-danger" ng-show="locationRequired">*</span></h3>
+        <select name="citySelect" ng-model="person.city" ng-required="locationRequired">
+            <option value=""></option>
+            <option ng-repeat="city in cities" value={{city.name}} ng-selected="{{city.name == person.city}}">
+                {{city.text}}
+            </option>
+        </select>
+    </div>
+
+    <div ng-if="neighborhoods"><h3 id="neighborhoodHeader">{{'NEIGHBORHOOD' | translate}}<span class="text-danger">*</span></h3>
+        <select name="neighborhoodSelect" ng-model="person.neighborhood" required>
+            <option value=""></option>
+            <option ng-repeat="neighborhood in neighborhoods" value={{neighborhood.name}} ng-selected="{{neighborhood.name == person.neighborhood}}">
+                {{neighborhood.text}}
+            </option>
+        </select>
+    </div>
+</div>

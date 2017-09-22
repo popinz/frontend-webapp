@@ -1,0 +1,25 @@
+<div><h3>{{'SKILLS' | translate}}</h3>
+    <div class="help">{{'CHECKBOX_HELP' | translate}}</div>
+    <span ng-repeat="skill in skills" class="check">
+        <label>
+            <label class="control control--checkbox">
+                <input type="checkbox" ng-model="skill.checked" ng-change="showFirstAids(skill)"/>
+                <div class="control__indicator"></div>
+            </label>
+            {{getText(skill)}}
+        </label>
+    </span>
+</div>
+<div ng-if="toShowFirstAids" >
+    <h3>{{'FIRST_AID' | translate}}</h3>
+    <div class="help">{{'FIRST_AID_HELP' | translate}}</div>
+    <span ng-repeat="firstAid in firstAids" class="check">
+        <label>
+            <label class="control control--radio">
+                <input type="radio" value={{firstAid.name}} ng-model="sitter.firstAid[0]"/>
+                <div class="control__indicator"></div>
+            </label>
+            {{getText(firstAid)}}
+        </label>
+    </span>
+</div>

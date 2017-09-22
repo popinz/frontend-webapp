@@ -1,0 +1,116 @@
+.browse-sitters{
+    h3{
+        display: inline-block;
+    }
+    .progress-ring{
+        height: 70px;
+        width: 70px;
+        margin: 0 calc((100% - 70px)/2);
+    }
+    .babysitter-preview{
+      width: 90%;
+      border:ridge;
+      margin:15px;
+      display:inline-block;
+      vertical-align:top;
+    }
+
+    .profile-mini-pic{
+      padding:6px;
+      img{
+         border-radius:50%;
+         height: 200px;
+         width: 200px;
+      }
+      & + h2{
+          margin-top: 10px;
+      }
+    }
+
+
+    .mini-about{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size:20px;
+        padding: 0 5px 0 5px;
+        & + p{
+            font-size: 20px;
+        }
+    }
+
+    .col-md-2 button{
+        width: 150px;
+        margin: 1.5em 0 1em;
+        font-size: 19px;
+        height: 46px;
+        border-radius: 9px;
+    }
+
+    select{
+        width: 305px;
+        max-width:90%;
+        margin-bottom: 10px;
+    }
+    h2{
+        font-size: 28px;
+    }
+    .modal-body{
+        select{
+            margin: auto;
+            display: block;
+        }
+    }
+
+    h1{
+        margin-botton: 1em;
+    }
+    form section{
+        &:lang(he){
+            float:right;
+        }
+    }
+
+
+    #icons-footer{
+        display: flex;
+        justify-content: center;
+    }
+
+    @media screen and (min-width: 390px){
+         figure{
+            margin: calc((100% - 333px)/6);
+        }
+    }
+
+    @media screen and (min-width: 700px){
+        .babysitter-preview{
+                width:45%;
+                height:490px;
+        }
+    }
+
+    @media screen and (min-width: 820px){
+        .row{
+            display: flex;
+            justify-content:center;
+
+        }
+    }
+
+    @media screen and (min-width: 1100px){
+        .babysitter-preview{
+                width:30%;
+        }
+    }
+    .modal-body{
+        #neighborhoodHeader{
+            margin-left: calc((100% - 280px) / 2);
+            margin-right: calc((100% - 280px) / 2);
+        }
+    }
+    .alert-danger{
+        max-width: 90%;
+        width: 400px;
+    }
+}

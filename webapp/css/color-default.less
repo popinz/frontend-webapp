@@ -1,0 +1,1790 @@
+// Variables
+@import "color-vars.less";
+
+
+
+/*
+// #Links
+// --------------------------------------------------
+*/
+a {
+	color: @link-color;
+	text-decoration: none;
+
+	&:hover {
+		color: @link-color-hover;
+		text-decoration: underline;
+	}
+}
+
+
+/*
+// #Headings
+// --------------------------------------------------
+*/
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	color: @heading-color;
+}
+
+
+
+/*
+// #Buttons
+// --------------------------------------------------
+*/
+.btn-primary { .btn-styles(@color-primary); }
+.btn-secondary { .btn-styles(@color-secondary); }
+.btn-tertiary { .btn-styles(@color-tertiary); }
+.btn-quaternary { .btn-styles(@color-quaternary); }
+.btn-quinary { .btn-styles(@color-quinary); }
+
+.btn-link {
+	color: @color-primary;
+
+	&:hover {
+		color: @color-primary;
+	}
+}
+
+
+
+
+/*
+// #Lists
+// --------------------------------------------------
+*/
+div.list {
+
+	ul {
+
+		li {
+
+			&:before {
+				color: @theme-color1;
+			}
+		}
+	}
+
+	&.list__lg {
+
+		ul {
+
+			li {
+
+				&:before {
+					border: 1px solid @theme-color1;
+				}
+			}
+		}
+	}
+
+	/* List Colors */
+	&.list-color__secondary {
+
+		ul li {
+
+			&:before {
+				color: @color-secondary;
+			}
+		}
+	}
+}
+
+
+
+/*
+// #Thumbnails
+// --------------------------------------------------
+*/
+.hovered-img {
+
+	&:hover {
+		background: @color-quinary;
+	}
+}
+
+
+/*
+// #Social Links
+// --------------------------------------------------
+*/
+.social-links {
+
+	> li {
+
+		> a {
+
+			&:hover {
+
+				.fa {
+					background: @color-primary;
+				}
+			}
+		}
+	}
+
+	// Primary
+	&.social-links__color-primary {
+
+		> li {
+
+			> a {
+
+				.fa {
+					background: @color-primary;
+				}
+
+				&:hover {
+
+					.fa {
+						color: @color-primary;
+					}
+				}
+			}
+		}
+	}
+
+	// Secondary
+	&.social-links__color-secondary {
+
+		> li {
+
+			> a {
+
+				.fa {
+					background: @color-secondary;
+				}
+
+				&:hover {
+
+					.fa {
+						color: @color-secondary;
+					}
+				}
+			}
+		}
+	}
+
+	// Colored
+	&.social-links__colored {
+
+		> li {
+
+			> a {
+
+				&:hover {
+
+					.fa {
+						background: @color-quinary;
+						color: @color-quaternary;
+					}
+				}
+			}
+		}
+	}
+}
+
+.social-links__primary {
+	
+	> li {
+
+		> a {
+			background: @color-primary;
+			border: 1px solid @color-primary;
+
+			&:hover {
+				color: @color-primary;
+			}
+		}
+	}
+}
+
+
+/*
+// #Forms
+// --------------------------------------------------
+*/
+
+.form-control {
+	.form-control-focus(@color-secondary);
+}
+
+.form-group {;
+
+  &.form-grop__icon {
+
+		.entypo,
+		.fa {
+			color: @color-senary;
+		}
+	}
+}
+
+/* Radio Button */
+.radio__custom {
+
+	input[type="radio"] {  
+
+		&:checked + span:before {
+			background: @color-primary;
+		}
+	}
+
+	// Style2
+	&.radio__style2 {
+
+		label {
+
+			&:before {
+				background: @color-primary;
+				border-color: darken(@color-primary, 5%);
+			}
+		}
+	}
+
+	// Style4
+	&.radio__style4 {
+
+		label {
+
+			&:before {
+				border-color: @color-primary;
+			}
+		}
+
+		input[type="radio"] {
+
+			&:checked + span:before {
+				background: @color-primary;
+			}
+		}
+	}
+}
+
+/* Checkbox */
+.checkbox__custom {
+
+	input[type="checkbox"] {  
+
+		&:checked + span:before {
+			color: @color-primary;
+		}
+	}
+
+	// Style2
+	&.checkbox__style2 {
+
+		label {
+
+			&:before {
+				background: @color-primary;
+				border-color: darken(@color-primary, 5%);
+			}
+		}
+	}
+
+	// Style4
+	&.checkbox__style4 {
+
+		label {
+
+			&:before {
+				border-color: @color-primary;
+			}
+		}
+
+		input[type="checkbox"] {
+
+			&:checked + span:before {
+				color: @color-primary;
+			}
+		}
+	}
+}
+
+
+
+
+
+/*
+// #Tabs
+// --------------------------------------------------
+*/
+.tabs {
+	
+	.nav-tabs {
+
+		> li {
+
+			> a {
+				background: @color-senary;
+			}
+
+			&.active > a {
+				background: @color-quinary;
+			}
+		}
+	}
+
+	.tab-content {
+		background: @color-quinary;
+	}
+}
+
+
+
+/*
+// #Tables
+// --------------------------------------------------
+*/
+
+.table-striped {
+	> tbody > tr:nth-child(odd) {
+		> td,
+		> th {
+			background-color: @color-quinary;
+		}
+	}
+}
+
+.table-hover {
+	> tbody > tr:hover {
+		background-color: @color-quinary
+	}
+}
+
+
+
+
+/*
+// #Accordion
+// --------------------------------------------------
+*/
+
+.panel-group {
+
+	.panel-title {
+		> a {
+			color: @color-senary;
+
+			&.collapsed {
+				color: @color-primary;
+			}
+		}
+	}
+}
+
+.panel-group__alt {
+
+	.panel-title {
+
+		> a {
+			color: @color-senary;
+
+			&:before {
+				background: @color-senary;
+			}
+
+			&.collapsed {
+				color: @color-primary;
+
+				&:before {
+					color: @color-senary;
+					background: @color-quinary;
+				}
+			}
+		}
+	}
+}
+
+.panel-default {
+	border-bottom: 1px solid @color-quinary !important;
+}
+
+
+/*
+// #Call to Action
+// --------------------------------------------------
+*/
+
+.call-to-action {
+	background: @color-quinary;
+
+	// Overlay
+	&.cta__overlay {
+
+		&.cta-overlay-color__primary:before {
+			background: @color-primary;
+		}
+		&.cta-overlay-color__secondary:before {
+			background: @color-secondary;
+		}
+		
+	}
+
+}
+
+
+
+/*
+// #Icon Box
+// --------------------------------------------------
+*/
+.icon-box {
+
+	.icon {
+		font-family: @heading-font;
+	}
+
+	// Colors
+	&.icon-box-color__primary {
+
+		.icon {
+			color: @color-primary;
+		}
+
+		&.circled {
+
+			.icon {
+				background: @color-primary;
+			}
+		}
+
+		.icon-box-body {
+
+			h2,
+			h3,
+			h4 {
+				color: @color-primary;
+			}
+		}
+
+		&.boxed {
+			background: @color-primary;
+		}
+	}
+
+	&.icon-box-color__secondary {
+
+		.icon {
+			color: @color-secondary;
+		}
+
+		&.circled {
+
+			.icon {
+				background: @color-secondary;
+			}
+		}
+
+		.icon-box-body {
+
+			h2,
+			h3,
+			h4 {
+				color: @color-secondary;
+			}
+		}
+
+		&.boxed {
+			background: @color-secondary;
+		}
+	}
+
+	&.icon-box-color__tertiary {
+
+		.icon {
+			color: @color-tertiary;
+		}
+
+		&.circled {
+
+			.icon {
+				background: @color-tertiary;
+			}
+		}
+
+		.icon-box-body {
+
+			h2,
+			h3,
+			h4 {
+				color: @color-tertiary;
+			}
+		}
+
+		&.boxed {
+			background: @color-tertiary;
+		}
+	}
+
+	&.icon-box-color__quaternary {
+
+		.icon {
+			color: @color-quaternary;
+		}
+
+		&.circled {
+
+			.icon {
+				background: @color-quaternary;
+			}
+		}
+
+		.icon-box-body {
+
+			h2,
+			h3,
+			h4 {
+				color: @color-quaternary;
+			}
+		}
+
+		&.boxed {
+			background: @color-quaternary;
+		}
+	}
+
+	&.icon-box-color__quinary {
+
+		.icon {
+			color: @color-quinary;
+		}
+
+		&.circled {
+
+			.icon {
+				background: @color-quinary;
+			}
+		}
+
+		.icon-box-body {
+
+			h2,
+			h3,
+			h4 {
+				color: @color-senary;
+			}
+		}
+
+		&.boxed {
+			background: @color-quinary;
+		}
+	}
+
+	&.icon-box-color__senary {
+
+		.icon {
+			color: @color-senary;
+		}
+
+		&.circled {
+
+			.icon {
+				background: @color-senary;
+			}
+		}
+
+		.icon-box-body {
+
+			h2,
+			h3,
+			h4 {
+				color: @color-senary;
+			}
+		}
+
+		&.boxed {
+			background: @color-senary;
+		}
+	}
+
+	&.icon-box-color__septenary {
+
+		.icon {
+			color: @color-septenary;
+		}
+
+		&.circled {
+
+			.icon {
+				color: @color-senary;
+				background: @color-septenary;
+			}
+		}
+
+		.icon-box-body {
+
+			h2,
+			h3,
+			h4 {
+				color: @color-senary;
+			}
+		}
+
+		&.boxed {
+			background: @color-septenary;
+		}
+	}
+
+	// Boxed
+	&.boxed {
+
+		&.circled {
+
+			.icon {
+				background: rgba(0,0,0,.15);
+			}
+		}
+	}
+}
+
+
+/*
+// #Blockquotes & Testimonial
+// --------------------------------------------------
+*/
+
+blockquote {
+	background: @color-quinary;
+
+	&:before {
+		color: @color-tertiary;
+	}
+}
+	cite {
+
+		&:after {
+			border-top: 20px solid @color-quinary;
+		}
+	}
+	
+/* Testimonial */
+.testimonial {
+
+	blockquote {
+
+		&:after {
+			border-top: 11px solid @color-quinary;
+		}
+	}
+
+	.bq-author {
+
+		h6 {
+			color: @theme-color2;
+		}
+	}
+}
+
+
+
+/*
+// #Dropcaps
+// --------------------------------------------------
+*/
+.dropcap {
+
+	&.dropcap__color-primary {
+		background-color: @color-primary;
+	}
+
+	&.dropcap__color-secondary {
+		background-color: @color-secondary;
+	}
+
+	&.dropcap__color-tertiary {
+		background-color: @color-tertiary;
+	}
+
+	&.dropcap__color-quaternary {
+		background-color: @color-quaternary;
+	}
+}
+
+
+
+/*
+// #Pricing Tables
+// --------------------------------------------------
+*/
+
+.pricing-table-plan {
+
+	.pricing-head {
+
+		h3 {
+			background: @color-senary;
+		}
+	}
+
+	.pricing-body {
+
+		ul {
+
+			> li {
+
+				&:nth-child(odd) {
+					background: @color-quinary;
+				}
+			}
+		}
+	}
+
+
+	// Popular
+	&.popular {
+
+		.pricing-head {
+
+			h3 {
+				background: @color-primary;
+				border-color: @color-primary;
+			}
+		}
+	}
+}
+
+
+
+/*
+// #Progress Bars
+// --------------------------------------------------
+*/
+
+// Mixin for generating new styles
+.progress-bar-styles(@color) {
+	background: @color;
+}
+
+// Apply the mixin to the progress bars
+.progress-bar            { .progress-bar-styles(@color-primary); }
+.progress-bar-secondary  { .progress-bar-styles(@color-secondary); }
+.progress-bar-tertiary   { .progress-bar-styles(@color-tertiary); }
+.progress-bar-quaternary { .progress-bar-styles(@color-quaternary); }
+.progress-bar-quinary    { .progress-bar-styles(@color-quinary);}
+.progress-bar-info       { .progress-bar-styles(@color-secondary);}
+
+
+
+
+
+/*
+// #Counter
+// --------------------------------------------------
+*/
+.counter-holder {
+
+	&.counter-dark {
+
+		.counter,
+		.fa,
+		.counter-info-inner {
+			color: @theme-color2;
+		}
+	}
+
+	&.counter-primary {
+
+		.counter,
+		.fa,
+		.counter-info-inner {
+			color: @color-primary;
+		}
+	}
+
+	&.counter-secondary {
+
+		.counter,
+		.fa,
+		.counter-info-inner {
+			color: @color-secondary;
+		}
+	}
+
+	&.counter-tertiary {
+
+		.counter,
+		.fa,
+		.counter-info-inner {
+			color: @color-tertiary;
+		}
+	}
+
+	&.counter-quaternary {
+
+		.counter,
+		.fa,
+		.counter-info-inner {
+			color: @color-quaternary;
+		}
+	}
+
+	&.counter-quinary {
+
+		.counter,
+		.fa,
+		.counter-info-inner {
+			color: @color-quinary;
+		}
+	}
+}
+
+
+
+/*
+// #Misc
+// --------------------------------------------------
+*/
+hr {
+	border-top-color: @color-quinary;
+}
+
+
+/* Back To Top */
+#back-top {
+
+	a {
+		.fa {
+			background: @color-senary;
+		}
+	}
+}
+
+
+.owl-theme .owl-controls .owl-buttons div {
+	color: @color-secondary;
+}
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+	background: @color-secondary;
+}
+
+.owl-theme .owl-controls.clickable .owl-buttons div:hover:before {
+	background: @color-secondary;
+}
+.owl-theme .owl-controls.clickable .owl-buttons div:hover:after {
+	background: @color-secondary;
+}
+
+.owl-theme .owl-pagination .owl-page span:hover,
+.owl-theme .owl-pagination .owl-page span:focus {
+	background-color: @color-secondary;
+}
+
+.owl-theme .owl-pagination .owl-page.active span {
+	background-color: @color-secondary;
+}
+
+
+
+
+// theme.less
+
+/*
+// #Header
+// --------------------------------------------------
+*/
+.header-top {
+	
+	@media (min-width:992px) {
+		
+		ul {
+
+			> li {
+
+				> a {
+
+					&:hover {
+						color: @color-primary;
+					}
+				}
+
+				.fa {
+					color: @color-primary;
+				}
+
+				
+				&:hover  {
+
+					> ul {
+						display: block;
+					}
+					
+				}
+			}
+		}
+	}
+
+	.btn-sm {
+		color: @color-primary;
+
+		&:hover {
+			background: @color-primary;
+		}
+	}
+}
+
+/* Logo */
+.header .logo {
+
+	h1,
+	h2 {
+		color: @color-primary;
+
+		> a {
+			color: @color-primary;
+		}
+	}
+}
+
+
+/*
+// #Navigation
+// --------------------------------------------------
+*/
+
+/* Navigation General styles */
+.flexnav {
+	background: @color-senary;
+}
+
+/* Navigation styles - For Desktop */
+@media (min-width: 992px) {
+
+	.flexnav {
+
+		> li {
+
+			> a {
+				color: @nav-link-color;
+			}
+
+			&:hover,
+			&.current-menu-parent,
+			&.active {
+
+				& > a {
+					background: @color-secondary;
+
+					&:before {
+						background: @color-primary;
+					}
+				}
+			}
+			
+			/* Submenu */
+			ul {
+				background: @color-secondary;
+
+	      li {
+
+	      	a {
+
+	      		&:hover {
+	      			background: @color-senary;
+	      		}
+	      	}
+
+	      	&.active > a {
+	      		background: @color-senary;
+	      	}
+	      }
+			}
+		}
+	}
+}
+
+
+/* Navigation Toggle Button */
+.navbar-toggle {
+	background: @color-senary;
+
+	&:hover,
+	&:active,
+	&:focus {
+		background: lighten(@color-senary, 8%);
+	}
+}
+
+
+/* Header */
+.header-menu-fullw {
+
+	
+	.header-main {
+		
+		// Info
+		.head-info {
+
+			.head-info-list {
+				border-bottom: 2px solid @color-quinary;
+
+				> li {
+					
+					> span {
+						color: @color-senary;
+					}
+
+				}
+			}
+		}
+	}
+	.nav-main {
+		background: @color-quinary;
+	}
+}
+
+
+/*
+// #Slider
+// --------------------------------------------------
+*/
+.loading .flexslider:before {
+	color: @color-secondary;
+}
+
+.flexslider {
+
+	/* Direction Nav */
+	.flex-direction-nav {
+
+		a {
+			color: @color-secondary;
+		}
+		.flex-prev { 
+
+			&:hover {
+				background: @color-secondary;
+			}
+		}
+		.flex-next { 
+
+			&:hover {
+				background: @color-secondary;
+			}
+		}
+	}
+
+	/* Control Nav */
+	.flex-control-nav {
+
+		li {
+
+			a {
+
+				&:hover {
+					background: @color-secondary;
+				}
+				&.flex-active {
+					background: @color-secondary;
+				}
+			}
+		}
+	}
+}
+
+.flexslider-desc {
+
+	a {
+		color: @color-tertiary;
+
+		&:hover {
+			color: @color-tertiary;
+		}
+	}
+}
+
+
+
+/*
+// #Content
+// --------------------------------------------------
+*/
+
+/* Page Heading */
+.page-heading {
+	border-top: 2px solid @color-quinary;
+	border-bottom: 2px solid @color-quinary;
+
+	@media (min-width: 992px) {
+		border-top: none;
+	}
+
+	/* Breadcrumbs */
+	.breadcrumb-trail {
+
+		.trail-items {
+
+			a {
+				color: @color-primary;
+			}
+		}
+	}
+}
+
+
+// Section
+.section {
+
+	// Overlay
+	&.section-overlay__yes {
+
+		&.section-overlay-color__dark:before {
+			background: @theme-color2;
+		}
+		&.section-overlay-color__light:before {
+			background: #fff;
+		}
+		&.section-overlay-color__primary:before {
+			background: @color-primary;
+		}
+		&.section-overlay-color__secondary:before {
+			background: @color-secondary;
+		}
+		&.section-overlay-color__tertiary:before {
+			background: @color-tertiary;
+		}
+		&.section-overlay-color__quaternary:before {
+			background: @color-quaternary;
+		}
+		&.section-overlay-color__quinary:before {
+			background: @color-quinary;
+		}
+		
+	}
+}
+
+.section-dark {
+	background: @theme-color2;
+}
+
+.section-light {
+	border-top: 1px solid @color-quinary;
+	border-bottom: 1px solid @color-quinary;
+}
+
+
+
+
+
+/*
+// #Widgets
+// --------------------------------------------------
+*/
+.widget__sidebar {
+	background: @color-quinary;
+}
+
+/* Base Widgets */
+.widget_archive ul,
+.widget_nav_menu ul,
+.widget_meta ul,
+.widget_pages ul,
+.widget_recent_comments ul,
+.widget_recent_entries ul,
+.widget_categories ul {
+
+	li {
+
+		&:before {
+			color: @color-secondary;
+		}
+	}
+}
+
+
+/* Widget :: Custom Menu */
+.widget_nav_menu {
+
+	ul {
+
+		> li {
+
+			a {
+				background: @color-quinary;
+				color: @color-primary;
+			}
+
+			&.active > a,
+			&:hover > a {
+				background: @color-primary;
+			}
+		}
+	}
+}
+
+/* Widget :: Latest Post Widget */
+.latest-posts-list {
+
+	.thumbnail {
+
+		&:hover {
+			background: @color-senary;
+		}
+	}
+}
+
+
+/* Widget :: Tag Cloud */
+.widget_tag_cloud {
+
+	.tagcloud {
+
+		a {
+			background: @color-secondary;
+
+			&:hover {
+				background: @color-primary;
+			}
+		}
+	}
+}
+
+
+/* Widget :: Calendar */
+#wp-calendar tbody td:hover {
+  color: @color-primary;
+}
+#wp-calendar tbody td:hover a {
+	color: @color-primary;
+}
+
+
+
+/* Widget :: Recent Jobs */
+.widget_recent_jobs {
+	
+	.job_listings {
+
+		> li {
+
+			.job-type {
+				color: @color-primary;
+			}
+		}
+	}
+}
+
+
+
+/*
+// #Page :: About Us
+// --------------------------------------------------
+*/
+
+.team-thumb {
+
+	.overlay {
+		background: @color-primary;
+	}
+}
+
+
+
+/*
+// #Page :: 404 Error Page
+// --------------------------------------------------
+*/
+.error-title {
+	color: @color-primary;
+}
+
+
+
+
+//
+// #Page :: Contacts
+// --------------------------------------------------
+
+
+.map-canvas {
+	
+	&:before {
+		color: @theme-color2;
+	}
+}
+
+
+
+/*
+// #Blog
+// --------------------------------------------------
+*/
+.entry,
+.post {
+	border-bottom: 2px solid @color-quinary;
+
+	&.post__with-icon {
+
+		.entry-icon {
+			background-color: @color-tertiary;
+		}
+	}
+
+	.entry-header {
+
+		h2 {
+
+			> a {
+
+				&:hover {
+					color: @color-primary;
+				}
+			}
+		}
+	}
+		.entry-meta {
+
+			> span {
+				background: @color-quinary;
+
+				.fa,
+				.entypo {
+					color: @color-senary;
+				}
+			}
+
+			a {
+				color: @color-senary;
+			}
+		}
+}
+
+.entry-thumb,
+article.post .entry-thumb {
+	
+	> a {
+
+		&:before {
+			background: @color-primary;
+		}
+	}
+}
+
+/* Pagination */
+.pagination-custom {
+
+	> li {
+
+		> a,
+		> span {
+			color: @color-senary;
+
+			&:hover {
+				background: @color-secondary;
+			}
+		}
+
+		> span[disabled="disabled"] {
+			background: @color-secondary;
+		}
+	}
+
+}
+
+/* Share Box */
+.post-share-box {
+	background: @color-quinary;
+}
+
+.commentlist {
+
+	li {
+
+		.comment-wrapper {
+			background: @color-quinary;
+
+			&:after {
+				border-right:10px solid @color-quinary; 
+			}
+		}
+	}
+
+	.bypostauthor .comment-wrapper {
+		background: @color-senary;
+
+		&:after {
+			border-right-color: @color-senary;
+		}
+	}
+}
+
+
+/*
+// #Footer
+// --------------------------------------------------
+*/
+
+/* Footer Widgets */
+.footer-widgets {
+	border-top: 1px solid @color-quinary;
+	border-bottom: 1px solid @color-quinary;
+}
+	
+	/* Footers Widgets specific styling */
+	.widget__footer {
+
+		/* Widget Title */
+		.widget-title {
+			border-bottom: 1px solid @color-septenary;
+		}
+		
+		/* Thumbnail */
+		.thumbnail {
+
+			a {
+
+				// Icon
+				&:after {
+					background: @color-primary;
+				}
+			}
+		}
+	}
+
+
+/* Copyright */
+.footer-copyright {
+
+	a {
+		color: @color-secondary;
+	}
+}
+
+
+
+
+
+
+/*
+// #Job Manager
+// --------------------------------------------------
+*/
+
+/* Latest Listings */
+.job_summary_shortcode {
+	background: @color-quinary;
+
+
+	.job_summary_content {
+
+		.name {
+
+			> a {
+
+				&:hover {
+					color: @color-primary;
+				}
+			}
+		}
+
+	}
+	.job_summary_footer {
+
+		.meta {
+
+			> li {
+
+				&:before {
+					color: @color-quaternary;
+				}
+			}
+		}
+	}
+
+	// Featured
+	.owl-featured-listings .listing-box & {
+
+		.job_summary_content-holder {
+
+			.job_summary_content {
+
+				.name {
+
+					> a {
+
+						&:hover {
+							color: @color-primary;
+						}
+					}
+				}
+
+				.job_summary_title {
+					> a {
+
+						&:hover {
+							color: @color-primary;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// Multiple chosen
+.chosen-container-active .chosen-choices {
+	border-color: @color-primary;
+	.box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @{color-primary}");
+}
+
+/* List */
+.job_filters {
+	background: @color-secondary;
+	border: 1px solid @color-septenary;
+
+	.search_jobs {
+
+		div.filter_by_tag {
+
+			> a {
+
+				&:hover {
+					background: @color-primary;
+				}
+			}
+		}
+	}
+}
+
+// Job Listings
+div.job_listings {
+
+	ul.job_listings {
+		border: 1px solid @color-septenary;
+
+		li.job_listing,
+		li.no_job_listings_found {
+
+			a {
+
+				&:hover {
+					background: @color-quinary;
+				}
+
+				div.location {
+
+					&:before {
+						color: @color-primary;
+					}
+				}
+			}
+
+			// Featured
+			&.job_position_featured {
+
+				a {
+					border-left: 3px solid @color-primary;
+
+					&:before {
+						background: @color-primary;
+					}
+
+					&:hover {
+						background: @color-quinary;
+					}
+				}
+			}
+		}
+	}
+}
+
+.rp4wp-related-job_listing>ul li.job_listing,
+.rp4wp-related-job_listing>ul li.no_job_listings_found,
+ul.job_listings li.job_listing,
+ul.job_listings li.no_job_listings_found {
+	border-bottom-color: @color-septenary;
+}
+
+/* Job Dashboard */
+.job-manager-jobs {
+
+	.job_title > a{
+		color: @theme-color2;
+	}
+	.filled {
+
+		.fa-check {
+			color: @color-primary;
+		}
+	}
+}
+
+// Spinner for Job/Resumes List
+.rp4wp-related-job_listing>ul.loading,
+ul.job_listings.loading,
+ul.resumes.loading {
+
+	// Spinner
+	&:before {
+		color: @color-secondary;
+	}
+}
+
+
+
+
+
+/*
+// #Resume Manager
+// --------------------------------------------------
+*/
+
+/* Dashboard */
+.resume-manager-resumes {
+
+	.resume-title > a{
+		color: @theme-color2;
+	}
+}
+
+
+/* List */
+.resume_filters {
+	background: @color-secondary;
+	border: 1px solid @color-septenary;
+}
+
+
+// Resumes Listings
+div.resumes {
+
+	ul.resumes {
+
+		li.resume,
+		li.no_resumes_found {
+
+			a {
+
+				&:hover {
+					background: @color-quinary;
+				}
+
+				div.candidate-location-column {
+
+					.candidate-location {
+
+						&:before {
+							color: @color-primary;
+						}
+					}
+				}
+			}
+
+			// Featured
+			&.resume_featured {
+
+				a {
+					border-left: 3px solid @color-primary;
+
+					&:before {
+						background: @color-primary;
+					}
+
+					&:hover {
+						background: @color-quinary;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// Resume Summary shortcode
+.resume_summary_shortcode {
+
+	.resume_summary_content {
+
+		.name {
+
+			> a {
+				color: @color-primary;
+			}
+		}
+		.resume_summary_title {
+			
+			> a {
+				color: @theme-color2;
+
+				&:hover {
+					color: @color-primary;
+				}
+			}
+		}
+
+	}
+	.resume_summary_footer {
+
+		.meta {
+
+			> li {
+
+				> a {
+					color: @color-primary;
+				}
+			}
+		}
+	}
+
+	// Featured
+	.owl-featured-listings .listing-box & {
+
+		.resume_summary_content-holder {
+
+			.resume_summary_content {
+
+				.name {
+
+					> a {
+
+						&:hover {
+							color: @color-primary;
+						}
+					}
+				}
+
+				.resume_summary_title {
+
+					> a {
+
+						&:hover {
+							color: @color-primary;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+/*
+// #Applications with LinkedIn, Facebook, Xing
+// --------------------------------------------------
+*/
+// Job Gallery Images
+.gallery-imgs {
+
+	.gallery-img-holder {
+
+		.gallery-item-thumb {
+				
+			> a {
+
+				&:before {
+					background: @color-primary;
+				}
+			}
+		}
+	}
+}
+
+
+
+@import "mixins.less";

@@ -1,0 +1,150 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+
+
+
+<!-- Page Content -->
+<section class="frontpage-content" dir="ltr">
+    <!-- <div class="container"> -->
+
+    <!-- WELCOME W/PICTURE -->
+    <div class="row background_img" >
+        <h1>{{'FRONTPAGE_TITLE1' | translate}}<br>{{'FRONTPAGE_TITLE2' | translate}}<br>{{'FRONTPAGE_TITLE3' | translate}}</h1>
+        <h3>{{'FRONTPAGE_SUBTITLE' | translate}}</h3>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="overlay">
+                <div class="row btn-row" >
+                    <!--<h3 id="text-overlay">הצטרף אלינו</h3>-->
+
+
+                    <div>
+                        <div   style="display:inline-block;" >
+                            <a  id="main_sitter_button" class="btn btn-overlay btn-main" ng-click="signup('sitter')"><b>{{'I_AM_A'|translate}}{{'SITTER'|translate}}</b></a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div  style="display:inline-block;" >
+                            <a  id="main_parent_button" class="btn btn-overlay btn-secondary" ng-click="signup('parent')"><b>{{'I_AM_A'|translate}}{{'PARENT'|translate}}</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="border-line"></div>
+    <div class="border-line-blue">
+        <h1 id="blu_line_text">{{'FIND_BEST_OPTIONS_TITLE'|translate}}</h1>
+        <h3 id="h3_blue_line">{{'FIND_BEST_OPTIONS_SUBTITLE'|translate}} :)</h3>
+    </div>
+    <!-- MAP -->
+
+    <!-- GOOD FOR PARENTS -->
+    <div class="row" style="background-color:#fefbf6; margin-top:-3%;">
+        <h1 class="h1-secondary">{{"PARENTS"|translate}}, {{'PARENTS_TITLE'|translate}}</h1>
+        <div class="profile col-sm-4 col-sm-push-8 col-md-4 col-md-push-8">
+            <img  class="img_circle" src="../images/frontpage/laptop.jpg">
+            <h3>{{'POST_A_JOB'|translate}}</h3>
+            <p>{{'POST_A_JOB_SUBTITLE1'|translate}}<br>{{'POST_A_JOB_SUBTITLE2'|translate}}</p>
+        </div>
+        <div class="profile col-sm-4 col-md-4">
+            <img class="img_circle" src="../images/frontpage/playing.jpg">
+            <h3>{{'FIND_BABYSITTERS' | translate}}</h3>
+            <p>{{'FIND_BABYSITTERS_SUBTITLE1' | translate}}<br>{{'FIND_BABYSITTERS_SUBTITLE2' | translate}}</p>
+        </div>
+        <div class="profile col-sm-4 col-sm-pull-8 col-md-4 col-md-pull-8">
+            <img  class="img_circle" src="../images/frontpage/painting.jpg">
+            <h3>{{'HAVE_A_BLAST' | translate}}</h3>
+            <p>{{'HAVE_A_BLAST_SUBTITLE1'|translate}}<br>{{'HAVE_A_BLAST_SUBTITLE2'|translate}}</p>
+        </div>
+        <div class="btn-div col-md-12 col-lg-12">
+            <a class="btn btn-secondary" ng-click="signup('parent')">{{'JOIN'|translate}}</a>
+        </div>
+        <div class=" col-md-12 col-lg-12 text-center">
+            <a ng-href="https://blog.popinz.co/parents-info-{{lang}}/" class="under_button_link">{{"MORE_INFO"|translate}}</a>
+        </div>
+    </div>
+
+    <!-- GOOD FOR SITTERS -->
+    <div class="row" style="background-color:#fef8fc">
+        <h1 class="h1-primary">{{"BABYSITTERS"|translate}}, {{'BABYSITTERS_TITLE'|translate}}</h1>
+        <div class="profile col-sm-4 col-sm-push-8 col-md-4 col-md-push-8">
+            <img img  class="img_circle" src="../images/frontpage/onme.jpg">
+            <h3>{{'CREATE_PROFILE'|translate}}</h3>
+            <p>{{'CREATE_PROFILE_SUBTITLE1'|translate}}<br>{{'CREATE_PROFILE_SUBTITLE2'|translate}}</p>
+        </div>
+        <div class="profile col-sm-4 col-md-4">
+            <img img  class="img_circle" src="../images/frontpage/homework.jpg">
+            <h3>{{'CHOOSE_JOBS'|translate}}</h3>
+            <p>{{'CHOOSE_JOBS_SUBTITLE1'|translate}}<br>{{'CHOOSE_JOBS_SUBTITLE2'|translate}}</p>
+        </div>
+        <div class="profile col-sm-4 col-sm-pull-8 col-md-4 col-md-pull-8">
+            <img  img  class="img_circle" src="../images/frontpage/boyingrass.jpg">
+            <h3>{{'GET_WORKING'|translate}}</h3>
+            <p>{{'GET_WORKING_SUBTITLE1'|translate}}<br>{{'GET_WORKING_SUBTITLE2'|translate}}</p>
+        </div>
+        <div class="btn-div col-md-12 col-lg-12">
+            <a class="btn btn-main" ng-click="signup('sitter')">{{'JOIN'|translate}}</a>
+        </div>
+        <div class=" col-md-12 col-lg-12 text-center">
+            <a ng-href="https://blog.popinz.co/sitters-info-{{lang}}/" class="under_button_link">{{"MORE_INFO"|translate}}</a>
+        </div>
+    </div>
+
+    <!-- PARENTS AND SITTERS GENERAL DESCRIPTION-->
+    <div class="row">
+
+        <div class="col-sm-6 col-md-6">
+            <h1 class="h1-primary">{{'BABYSITTERS'|translate}}</h1>
+            <img id="footer_sitter" src="../images/frontpage/sitter_f.jpg" style="width:28.3%">
+            <p id="sitter-text">{{"ILLUSTRATIONS_SITTERS_SUBTITLE1"|translate}}<br/>
+                {{"ILLUSTRATIONS_SITTERS_SUBTITLE2"|translate}}<br/>
+                {{"ILLUSTRATIONS_SITTERS_SUBTITLE3"|translate}}
+            </p>
+            <div class="btn-div">
+                <a class="btn btn-main" ng-click="signup('sitter')">{{"FIND_A_JOB"|translate}}</a>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <h1 class="h1-secondary">{{'PARENTS'|translate}}</h1>
+            <img src="../images/frontpage/parents_f.jpg" id="footer_parent">
+            <p id="parent-text">{{"ILLUSTRATIONS_PARENTS_SUBTITLE1"|translate}}<br>
+                {{"ILLUSTRATIONS_PARENTS_SUBTITLE2"|translate}}<br>
+                {{"ILLUSTRATIONS_PARENTS_SUBTITLE3"|translate}}
+            </p>
+            <div class="btn-div">
+                <a class="btn btn-secondary" ng-click="signup('parent')">{{"FIND_A_SITTER"|translate}}</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- OUR PARTNERS -->
+    <div class="row">
+        <h1 style="font-size:2.5vw">{{"OUR_PARTNERS"|translate}}</h1>
+        <div class="col-sm-3 col-md-3">
+            <div class="hovered-img text-center">
+                <a href="http://yerushalmim.info/"><img class="partner-img" src="images/frontpage/hatnua hayerushalmit.jpg" alt=""></a>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+            <div class="hovered-img text-center">
+                <a href="http://in-jerusalem.org/"><img class="partner-img" src="images/frontpage/hitorerut.jpg" alt=""></a>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+            <div class="hovered-img text-center">
+                <a href="https://www.infogan.co.il/"><img class="partner-img" src="images/frontpage/Infogan.png" alt=""></a>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+            <div class="hovered-img text-center">
+                <a href="http://jcya.org.il/"><img class="partner-img" src="images/frontpage/young-center.jpg" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+</section>
+<!-- Page Content / End -->

@@ -1,0 +1,17 @@
+<div><h3>{{'GENDER' | translate}}<span class="text-danger">*</span></h3>
+                <span ng-repeat="gender in genders">
+                    <label>
+                        <label class="control control--radio">
+                            <input type="radio" name="genderRadios" value={{gender.name}} ng-model="sitter.gender" required/>
+                            <div class="control__indicator"></div>
+                        </label>
+                        {{getText(gender)}}
+                    </label>
+                </span>
+</div>
+<div><h3>{{'AGE' | translate}}<span class="text-danger">*</span></h3>
+    <div id="ageAlert" ng-show="ageInvalid && sitter.age<15" class="alert alert-danger">
+        {{'AGE_HELP' | translate}}
+    </div>
+    <input class="age" ng-model="sitter.age" type="number" required>
+</div>

@@ -1,0 +1,23 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+<div class="text-center">
+    <div ng-if="sitter.img && !myImage && !wait">
+        <div><img ng-src="{{'data:image/png;base64,'+sitter.img}}" class="img-thumbnail"/></div>
+    </div>
+    <div ng-if="imgInvalid && !myImage && !sitter.img" class="alert alert-danger">
+        {{'MANDATORY_ALERT' | translate}}
+    </div>
+    <div ng-show="!wait && (!sitter.img || (sitter.img && myImage))">
+        <!--img ng-src="{{myImage?myCroppedImage:'https://placehold.it/200x200'}}" class="img-thumbnail"/-->
+        <img ng-src="{{myImage?myCroppedImage:'../images/placeholders/userpic.png'}}" class="img-thumbnail"/>
+    </div>
+    <div class="fileUpload">
+        <img ng-show="wait" src="../images/progress.gif">
+        <input type="file" accept=".jpg,.png" id="fileInput" ng-class="{'invalid' : imgInvalid && !myImage && !sitter.img}" style="margin:auto;"/>
+    </div>
+    <div class="cropArea" ng-show="myImage && !wait">
+        <img-crop image="myImage" result-image="myCroppedImage" area-type="square" on-load-done="loadDone()"></img-crop>
+    </div>
+</div>
+

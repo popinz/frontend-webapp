@@ -1,0 +1,30 @@
+<div class="login text-center">
+    <div ng-if="sitter_api_ready && parent_api_ready">
+        <h1>{{'LOGIN' | translate}}</h1>
+        <form name="siteLogin" ng-submit="vm.login()" role="form" class="text-center signup-block">
+            <div class="form-group" ng-class="{ 'has-error': siteLogin.username.$dirty && siteLogin.username.$error.required }">
+                <h3>{{'EMAIL_OR_USERNAME' | translate}}<span class="text-danger">*</span></h3>
+                <input type="text" name="username" id="username" autocapitalize="none" class="form-control" ng-model="vm.username" required />
+                <span ng-show="siteLogin.username.$dirty && siteLogin.username.$error.required" class="help-block">Username is required</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': siteLogin.password.$dirty && siteLogin.password.$error.required }">
+                <h3>{{'PASSWORD' | translate}}<span class="text-danger">*</span></h3>
+                <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+                <span ng-show="siteLogin.password.$dirty && siteLogin.password.$error.required" class="help-block">Password is required</span>
+            </div>
+            <div class="form-actions">
+                <div>
+                    <input class="btn btn-md btn-primary" type="submit" value="{{'MAIL_LOGIN' | translate}}"  ng-submit="vm.login()" ng-disabled="siteLogin.$invalid || vm.dataLoading"  ng-click="setTypeOfLogIn('mail')" class="button-link btn btn-md btn-secondary"  >
+                </div>
+            </div>
+        </form>
+            <b></b>
+        <form name="fb-login" ng-submit="facebookLogin()" role="form" class="text-center signup-block">
+            <div ng-controller="facebookLoginCtrl">
+                <input type="submit" class="btn btn-md btn-secondary" value="{{'FB_LOGIN' | translate}}" ng-click="setTypeOfLogIn('fb')"/>
+            </div>
+        </form>
+        <div><a href="index.html#/reset-request/en" class="btn btn-link">{{'I_FORGOT_MY_PASSWORD' | translate}}</a></div>
+        <div><a ng-href="#/signup/{{lang}}" class="btn btn-link">{{'SIGN_UP' | translate}}</a></div>
+    </div>
+</div>

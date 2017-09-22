@@ -1,0 +1,18 @@
+<div class="kidsSection">
+    <section>
+        <h3>{{"NUMBER_OF_KIDS" | translate}}</h3>
+        <select ng-model="parent.numberOfChildren" ng-options="number for number in [1, 2, 3, 4, 5, 6]">
+        </select>
+    </section>
+    <!--section>
+        <h3>{{"KIDS_AGES" | translate}}</h3>
+        <div ng-repeat="kid in parent.kidsInfo track by $index">
+            {{$index+1}}.
+            <select name="kid-{{$index+1}}" ng-model="kid.age" ng-options="age for age in ages">
+            </select>
+        </div>
+        <div>
+            <span class="add" ng-click="addChild()">+</span>
+        </div>
+    </section-->
+</div>

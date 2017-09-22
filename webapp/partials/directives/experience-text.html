@@ -1,0 +1,9 @@
+<div><h3>{{'EXPERIENCE_TEXT' | translate}}<span class="text-danger">*</span></h3>
+    <div class="help">{{'EXPERIENCE_TEXT_HELP' | translate}}</div>
+    <div id="experienceAlert" ng-show="experienceInvalid && ((!sitter.experienceStringHeb && sitter.experienceStringEn.length<textareaMinLength)||
+                                                                        (!sitter.experienceStringEn && sitter.experienceStringHeb.length<textareaMinLength))" class="alert alert-danger">
+        {{'SHORT_ALERT' | translate}}
+    </div>
+    <textarea ng-if="lang == 'en'" ng-model="sitter.experienceStringEn" required> </textarea>
+    <textarea ng-if="lang == 'he'" ng-model="sitter.experienceStringHeb" required> </textarea>
+</div>

@@ -1,0 +1,20 @@
+<!--
+  ~ Copyright (c) Popinz.co 2016.
+  -->
+<div class="container" ng-cloak>
+    <zero-step id="firstSignUpStep" ng-show="sitterDetails.currentStep == 0"></zero-step>
+    <sitter-details id="createSitterProfile" ng-show="sitterDetails.currentStep != 0 && accountType == 'sitter'"></sitter-details>
+    <parent-details id="createParentProfile" ng-show="sitterDetails.currentStep != 0 && accountType == 'parent'"></parent-details>
+    <div ng-if="sitterDetails.skip" class="text-center">
+        <h1 class="text-center">{{"SEE_YOU_LATER_HEADER" | translate}}</h1>
+        <p>{{"SEE_YOU_LATER_TEXT1" | translate}}</p>
+        <p>{{"SEE_YOU_LATER_TEXT2" | translate}} (<a ng-href="https://blog.popinz.co/sitters-info-{{lang}}">{{"MORE_INFO" | translate}}</a>)</p>
+    </div>
+    <div class="text-center" ng-show="accountType === 'sitter' && sitterDetails && sitterDetails.currentStep!==0 && sitterDetails.currentStep!==1">
+        <div class="progress progress-striped">
+            <div class="progress-bar progress-bar-info pull-{{ default_float }}" role="progressbar"  style="width: {{(sitterDetails.currentStep-1) * 100/(steps.length-2)}}%;">
+                {{(sitterDetails.currentStep-1) * 100/(steps.length-2)}}%
+            </div>
+        </div>
+    </div>
+</div>
