@@ -401,7 +401,7 @@
                                             'accountId': $scope.parent.email,
                                             'token': $scope.parent.password,
                                             'tokenType': "SITE",
-                                            'confirmation': $scope.parent.confirm}
+                                            'confirm': $scope.parent.confirm}
                                         );
                                         gapi.client.parentProfileApi.signUpParent($scope.parent).execute(function (response) {
                                             console.log(response);

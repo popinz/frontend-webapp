@@ -56,6 +56,7 @@
                     'accountId': fbResponse.id,
                     'token': fbResponse.accessToken,
                     'tokenType': 'FACEBOOK',
+                    'confirm': '0',
                     'email': fbResponse.email,
                     'firstNameEn': firstNameEn,
                     'lastNameEn': lastNameEn,
@@ -80,6 +81,7 @@
                             'accountId': fbResponse.id,
                             'token': fbResponse.accessToken,
                             'tokenType': 'FACEBOOK',
+                            'confirm': '0',
                             'email': fbResponse.email,
                             'firstNameEn': firstNameEn,
                             'lastNameEn': lastNameEn,
@@ -177,8 +179,9 @@
                                                 return $scope.facebookResponse(fbResponse);
                                             },
                                             function (reason) {
-                                                console.log(reason.message);
-                                                alertsService.showAlert(reason.message);
+                                                console.log(reason);
+                                                if (reason !== undefined)
+                                                    alertsService.showAlert(reason.message);
                                                 $('#facebookSignupButton').prop('disabled', false);
                                                 $('#siteSignupButton').prop('disabled', false);
                                             });
@@ -197,8 +200,9 @@
                                     return $scope.facebookResponse(fbResponse);
                                 },
                                 function (reason) {
-                                    console.log(reason.message);
-                                    alertsService.showAlert(reason.message);
+                                    console.log(reason);
+                                    if (reason !== undefined)
+                                        alertsService.showAlert(reason.message);
                                     $('#facebookSignupButton').prop('disabled', false);
                                     $('#siteSignupButton').prop('disabled', false);
                                 });
@@ -206,7 +210,8 @@
                     }
                 });
             }, function (reason) {
-                alert('Failed: ' + reason.message);
+                if (reason !== undefined)
+                    alert('Failed: ' + reason.message);
                 $('#facebookSignupButton').prop('disabled', false);
                 $('#siteSignupButton').prop('disabled', false);
             });
