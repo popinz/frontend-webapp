@@ -6,3 +6,5 @@
 /webapp/css/popinz.css
 /robots.html
 /redirect.html
+# Google App Engine generated folder
+appengine-generated/

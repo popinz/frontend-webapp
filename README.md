@@ -1,1 +1,1 @@
-Initial Popinz alpha front end
+Popinz frontend webapp
