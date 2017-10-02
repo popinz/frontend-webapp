@@ -25,7 +25,7 @@ Brackets
 ========
 Install from http://brackets.io/
 Open brackets to the frontend-webapp folder. Select index.html, and run the live preview. The popinz home page should be properly displayed with images and the correct css. Otherwise, return to the setup step.
-You should be able to make changes in the code and get live updates. Google endpoint API calls will go to the test backend server. For access to a live backend sandbox, contact https://gitlab.com/lo_alan
+You should be able to make changes in the code and get live updates. Google endpoint API calls will go to the test backend server. For access to a live backend sandbox, contact https://github.com/loalan
 
 Issues
 ======
