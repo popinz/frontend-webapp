@@ -1,6 +1,19 @@
 .browse-sitters{
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     h3{
         display: inline-block;
+    }
+    
+    .inner{
+        
+        max-width: 1440px;
+        margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
     }
     .progress-ring{
         height: 70px;

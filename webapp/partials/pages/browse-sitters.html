@@ -60,10 +60,11 @@
             {{"NO_RESULTS" | translate}}
         </div>
         <!--Mini-profile-->
+        <div class="inner">
         <mini-profile id="{{ 'profile-' + sitter.id }}" class="babysitter-preview" ng-repeat="sitter in sitters">
 
         </mini-profile>
-
+</div>
     </div>
     <img class="progress-ring" ng-show="!sitters_loaded || busy" src="../images/progress.gif">
 </div>
