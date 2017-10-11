@@ -3,14 +3,14 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    
     h3{
         display: inline-block;
     }
     
     .inner{
-        
-        max-width: 1440px;
-        margin-right: auto;
+    max-width: $desktop-width;
+     margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
@@ -125,5 +125,15 @@
     .alert-danger{
         max-width: 90%;
         width: 400px;
+    }
+    
+    @media screen and (min-width:$desktop-width){
+        
+        h1{
+       
+        font-size:3vw;
+        margin-bottom: 20px;
+        
+    }
     }
 }

@@ -24,7 +24,9 @@ $font-english-header: 'Open Sans', sans-serif;
 
 //size adjustments for desktop display
 
-$max-width:1440px;
+$desktop-width:1440px;
+
+//header fixed sizes
 
 //fonts and headers
 
@@ -131,7 +133,10 @@ a{
 
 label{
     font-weight: normal;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
+    margin-bottom: 3px;
+    display: block;
+    color:#2D79BE;
 }
 
 //inputs
@@ -150,6 +155,10 @@ input{
 
 .text-info{
     color: $text-secondary-color;
+}
+
+ input[type="email"]{
+     text-align: left;
 }
 
 //checkboxes and radio buttons
@@ -350,3 +359,4 @@ figcaption{
 @import 'footer-members';
 @import 'cross-browser';
 @import 'parent-profile';
+@import 'contact-sitter';

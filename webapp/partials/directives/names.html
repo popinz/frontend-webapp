@@ -1,9 +1,8 @@
-<div><h3>{{'FIRST_NAME' | translate}}<span class="text-danger">*</span></h3>
-    <input name="firstNameEnInput" ng-if="lang == 'en'" ng-model="person.firstNameEn" type="text" size="30" required>
-    <input name="firstNameHeInput" ng-if="lang == 'he'" ng-model="person.firstNameHe" type="text" size="30" required>
-</div>
-
-<div><h3>{{'LAST_NAME' | translate}}<span class="text-danger">*</span></h3>
-    <input name="lastNameEnInput" ng-if="lang == 'en'" ng-model="person.lastNameEn" type="text" size="30" required>
-    <input name="lastNameHeInput" ng-if="lang == 'he'" ng-model="person.lastNameHe" type="text" size="30" required>
-</div>
+<div class="form-row">
+    <label for="{{lang == 'en' ? 'firstNameEnInput' : 'firstNameHeInput'}}">{{'FIRST_NAME' | translate}}<span class="text-danger">*</span></label>
+    <input id="firstNameEnInput" name="firstNameEnInput" ng-if="lang == 'en'" ng-model="person.firstNameEn" type="text" size="30" required>
+    <input id="firstNameHeInput" name="firstNameHeInput" ng-if="lang == 'he'" ng-model="person.firstNameHe" type="text" size="30" required> </div>
+<div class="form-row">
+    <label for="{{lang == 'en' ? 'lastNameEnInput' : 'lastNameHeInput'}}">{{'LAST_NAME' | translate}}<span class="text-danger">*</span></label>
+    <input id="lastNameEnInput" name="lastNameEnInput" ng-if="lang == 'en'" ng-model="person.lastNameEn" type="text" size="30" required>
+    <input id="lastNameHeInput" name="lastNameHeInput" ng-if="lang == 'he'" ng-model="person.lastNameHe" type="text" size="30" required> </div>

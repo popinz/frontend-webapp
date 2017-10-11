@@ -394,7 +394,7 @@
 
 
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: $desktop-width) {
 
         .frontpage-content{
         
@@ -435,7 +435,7 @@
             }
             .row-inner{
                 
-                width:$max-width;
+                width:$desktop-width;
                 margin: 0 auto;
                 
             }
