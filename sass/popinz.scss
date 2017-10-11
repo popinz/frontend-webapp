@@ -133,10 +133,12 @@ a{
 
 label{
     font-weight: normal;
-    padding-bottom: 2px;
-    margin-bottom: 3px;
-    display: block;
-    color:#2D79BE;
+    padding-bottom: 3px;
+    // revert for now, as this affects all global labels
+    //padding-bottom: 2px;
+    //margin-bottom: 3px;
+    //display: block;
+    //color:#2D79BE;
 }
 
 //inputs
