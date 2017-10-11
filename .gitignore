@@ -8,3 +8,4 @@
 /redirect.html
 # Google App Engine generated folder
 appengine-generated/
+.sass-cache

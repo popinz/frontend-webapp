@@ -302,7 +302,7 @@
             if(!res)
             {
                 $scope.edit[$scope.cardId] = !$scope.edit[$scope.cardId];
-                $scope.cardOpen = cardId;
+                $scope.cardOpen = $scope.cardId;
             }
             else
             {
