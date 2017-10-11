@@ -25,7 +25,7 @@
         <!--h2 class="text-center">{{::"BROWSE_SITTERS_HEADER2" | translate}}</h2>
         <h2 class="text-center">{{::"BROWSE_SITTERS_HEADER3" | translate}}</h2-->
         <form class="row" ng-submit="applyFilters()">
-            <section class="col-md-4">
+            <section class="col-md-4 form-section">
                 <label>
                     <label class="control control--radio">
                         <input type="radio" name="searchRadio" value="location" ng-model="search" ng-change="disableSelects()"/>
@@ -33,10 +33,10 @@
                     </label>
                     <h3 ng-show="search =='location'">{{::"LOCATION_FILTER_HEADER" | translate}}</h3>
                     <h3 ng-show="search =='language'">{{::"LOCATION_FILTER_HEADER_UNCHECKED" | translate}}</h3>
-                </label><br/>
+                </label>
                 <location person="sitter" hide-city-header=true ng-hide="search =='language'"></location>
             </section>
-            <section class="col-md-4">
+            <section class="col-md-4 form-section">
                 <label>
                     <label class="control control--radio">
                         <input type="radio" name="searchRadio" value="language" ng-model="search" ng-change="disableSelects()"/>
@@ -45,12 +45,12 @@
                     <h3 ng-show="search =='language'">{{::"LANG_FILTER_HEADER" | translate}}</h3>
                     <h3 ng-show="search =='location'">{{::"LANG_FILTER_HEADER_UNCHECKED" | translate}}</h3>
                 </label>
-                <br/>
+              
                 <select ng-hide="search == 'location'" ng-model="sitter.language"  ng-options="language.name as getText(language) for language in languages">
                     <option value="">{{::'ANY_LANGUAGE' | translate}}</option>
                 </select>
             </section>
-            <section class="col-md-2">
+            <section class="col-md-2 form-row">
                 <button type="submit" class="btn-secondary">{{::"SEARCH" | translate}}</button>
             </section>
         </form>

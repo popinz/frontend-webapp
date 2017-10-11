@@ -6,9 +6,8 @@
                 {{city.text}}
             </option>
         </select>
-    </div>
-
-    <div ng-if="neighborhoods" class="form-row"><label for="neighborhoodSelect" id="neighborhoodHeader">{{'NEIGHBORHOOD' | translate}}<span class="text-danger">*</span></label>
+   
+    <div ng-if="neighborhoods"><label for="neighborhoodSelect" id="neighborhoodHeader">{{'NEIGHBORHOOD' | translate}}<span class="text-danger">*</span></label>
         <select id="neighborhoodSelect" name="neighborhoodSelect" ng-model="person.neighborhood" required>
             <option value=""></option>
             <option ng-repeat="neighborhood in neighborhoods" value={{neighborhood.name}} ng-selected="{{neighborhood.name == person.neighborhood}}">

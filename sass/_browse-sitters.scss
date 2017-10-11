@@ -1,14 +1,26 @@
 .browse-sitters{
     
+   
     display: flex;
     justify-content: center;
     flex-direction: column;
+    
+     .container-fluid{
+        
+        width:100%;
+        max-width:$desktop-width;
+    
+    }
+    
     
     h3{
         display: inline-block;
     }
     
     .inner{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     max-width: $desktop-width;
      margin-right: auto;
     margin-left: auto;
