@@ -1,44 +1,45 @@
-.contact-sitter{
-    
-    font-size:22px;
-    
-    select{
-        
+.contact-sitter {
+    font-size: 22px;
+    label {
+        display: block;
+        color: #2D79BE;
+    }
+    select {
         margin: 5px!important;
     }
-    
     /*if both email & phone inputs are closed*/
-    
-    .contact-method{
+    .contact-method {
+        margin-top: 5px;
+    }
+    .contact-method label {
         
-        margin-top: 10px;
+        
+        
+    }
+    .contact-method.both-closed {
+        display: inline-block
     }
     
-    .contact-method label{
+    .contact-method.open {
         
-        padding-bottom: 5px;
     }
-    
-    .contact-method.both-closed{
-        
-       display: inline-block
-    }
-    
-    .checkbox-label{
-        display: block;
+    .checkbox-label {
+      
         padding: 5px 0px;
     }
     
-    input[type="email"]{
-        width:100%!important;
+    .checkbox-label label{
+ 
+     
+        display: inline-block;
+    }
+    input[type="email"] {
+        width: 100%!important;
         max-width: 600px;
     }
-    
-    @media screen and (min-width:$desktop-width){
-        
-        input[type="email"]{
-       /*width:75%!important;*/
-       
-    }
+    @media screen and (min-width:$desktop-width) {
+        input[type="email"] {
+            /*width:75%!important;*/
+        }
     }
 }

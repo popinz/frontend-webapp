@@ -34,10 +34,10 @@
                     <h3 ng-show="search =='location'">{{::"LOCATION_FILTER_HEADER" | translate}}</h3>
                     <h3 ng-show="search =='language'">{{::"LOCATION_FILTER_HEADER_UNCHECKED" | translate}}</h3>
                 </label>
-                <location person="sitter" hide-city-header=true ng-hide="search =='language'"></location>
+                <location class="search" person="sitter" hide-city-header=true ng-hide="search =='language'"></location>
             </section>
             <section class="col-md-4 form-section">
-                <label>
+                <label class="search-lang" >
                     <label class="control control--radio">
                         <input type="radio" name="searchRadio" value="language" ng-model="search" ng-change="disableSelects()"/>
                         <div class="control__indicator"></div>
@@ -50,7 +50,7 @@
                     <option value="">{{::'ANY_LANGUAGE' | translate}}</option>
                 </select>
             </section>
-            <section class="col-md-2 form-row">
+            <section class="col-md-2">
                 <button type="submit" class="btn-secondary">{{::"SEARCH" | translate}}</button>
             </section>
         </form>
