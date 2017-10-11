@@ -1,3 +1,4 @@
+
 //primary-color and its shades
 $primary-color: #C343C0;
 $primary-color-darker: #8c3b77;
@@ -20,6 +21,12 @@ $font-hebrew-body: 'Open Sans Hebrew', sans-serif;
 $font-hebrew-header: 'Open Sans Hebrew', sans-serif;
 $font-english-body: 'Open Sans', sans-serif;
 $font-english-header: 'Open Sans', sans-serif;
+
+//size adjustments for desktop display
+
+$desktop-width:1440px;
+
+//header fixed sizes
 
 //fonts and headers
 
@@ -126,7 +133,10 @@ a{
 
 label{
     font-weight: normal;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
+    margin-bottom: 3px;
+    display: block;
+    color:#2D79BE;
 }
 
 //inputs
@@ -147,6 +157,19 @@ input{
     color: $text-secondary-color;
 }
 
+ input[type="email"]{
+     text-align: left;
+}
+
+.form-section{
+    
+    
+}
+.form-row{
+        
+        padding:12px 15px;
+    }
+    
 //checkboxes and radio buttons
 
 .control {
@@ -345,3 +368,4 @@ figcaption{
 @import 'footer-members';
 @import 'cross-browser';
 @import 'parent-profile';
+@import 'contact-sitter';

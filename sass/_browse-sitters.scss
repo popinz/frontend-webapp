@@ -1,6 +1,31 @@
 .browse-sitters{
+    
+   
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+     .container-fluid{
+        
+        width:100%;
+        max-width:$desktop-width;
+    
+    }
+    
+    
     h3{
         display: inline-block;
+    }
+    
+    .inner{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    max-width: $desktop-width;
+     margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
     }
     .progress-ring{
         height: 70px;
@@ -112,5 +137,15 @@
     .alert-danger{
         max-width: 90%;
         width: 400px;
+    }
+    
+    @media screen and (min-width:$desktop-width){
+        
+        h1{
+       
+        font-size:3vw;
+        margin-bottom: 20px;
+        
+    }
     }
 }

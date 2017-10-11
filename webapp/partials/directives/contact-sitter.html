@@ -1,4 +1,4 @@
-<div class="modal fade text-center" id="contactSitterModal" tabindex="-1" role="dialog" aria-labelledby="contactSitterModalLabel">
+<div class="modal fade text-center contact-sitter" id="contactSitterModal" tabindex="-1" role="dialog" aria-labelledby="contactSitterModalLabel">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,33 +6,42 @@
                 <div class="cross" data-dismiss="modal">&#x2715</div>
             </div>
             <div class="modal-body">
-                <form id="contactSitterForm" ng-submit="submit()" name="contactSitterForm">
-                    {{getFirstName(sitter)}} {{::"CONTACT_FORM_INFO_TEXT" | translate}}
-                    <names person="parent" lang="lang"></names>
-                    <location person="parent" location-required=true></location>
-                    <h3>{{::"CONTACT_ME_BY" | translate}}:<span class="text-danger">*</span></h3>
-                    <div id="noContactMethodAlert" ng-show="noContactMethod && !contactMe.email && !contactMe.phone" class="div-center alert alert-danger">{{"CONTACT_METHOD_ALERT" | translate}}</div>
-                    <div ng-class="{'contactMe' : !contactMe.email}">
-                        <label class="control control--checkbox">
-                            <input name="phone" type="checkbox" ng-model="contactMe.phone"/>
-                            <div class="control__indicator"></div>
-                        </label>
-                        {{::'MOBILE' | translate}}
-                        <contact-details person="parent" mobile-only=true ng-if="contactMe.phone"></contact-details>
+                <form id="contactSitterForm" ng-submit="submit()" name="contactSitterForm"> {{getFirstName(sitter)}} {{::"CONTACT_FORM_INFO_TEXT" | translate}}
+    
+                        <names person="parent" lang="lang"></names>
+                        <location person="parent" location-required=true></location>
+                    
+                    <div class='form-row'>
+                        <label>{{::"CONTACT_ME_BY" | translate}}:<span class="text-danger">*</span></label>
+                        <div id="noContactMethodAlert" ng-show="noContactMethod && !contactMe.email && !contactMe.phone" class="div-center alert alert-danger">{{"CONTACT_METHOD_ALERT" | translate}}</div>
+                   
+                  
+                        <div ng-class="{'both-closed' : !contactMe.email && !contactMe.phone}" class="contact-method">
+                            <div class="checkbox-label"><label class="control control--checkbox">
+                                <input name="phone" type="checkbox" ng-model="contactMe.phone" />
+                                <div class="control__indicator"></div>
+                                </label> {{::'MOBILE' | translate}}</div>
+                            <contact-details person="parent" mobile-only=true ng-if="contactMe.phone"></contact-details>
+                        </div>
+                        <div ng-class="{'both-closed' : !contactMe.phone && !contactMe.email}" class="contact-method">
+                            <div class="checkbox-label"><label class="control control--checkbox">
+                                <input name="email" type="checkbox" ng-model="contactMe.email" />
+                                <div class="control__indicator"></div>
+                            </label> {{::'EMAIL' | translate}}</div>
+                           
+                            <input type="email" name="myEmail" class="" ng-if="contactMe.email" ng-model="parent.secondEmail" required> </div>
                     </div>
-                    <div ng-class="{'contactMe' : !contactMe.phone}">
-                        <label class="control control--checkbox">
-                            <input name="email" type="checkbox" ng-model="contactMe.email"/>
-                            <div class="control__indicator"></div>
-                        </label>
-                        {{::'EMAIL' | translate}}<br/>
-                        <input name="myEmail" ng-if="contactMe.email" ng-model="parent.secondEmail" required>
+                  
+                        <kids></kids>
+                   
+                    <div class='form-row'>
+                        <label for="aboutUsText">{{::"ABOUT_US" | translate}}<span class="text-danger">*</span></label>
+                        <textarea id="aboutUsText" name="aboutUsText" ng-model="parent.aboutUs" required></textarea>
                     </div>
-                    <kids></kids>
-                    <h3>{{::"ABOUT_US" | translate}}<span class="text-danger">*</span></h3>
-                    <textarea name="aboutUsText" ng-model="parent.aboutUs" required></textarea>
-                    <h3>{{::"REQUIREMENTS" | translate}}</h3>
-                    <textarea name="requirementsText" ng-model="parent.generalRequirements"></textarea>
+                    <div class='form-row'>
+                        <label for="requirementsText">{{::"REQUIREMENTS" | translate}}</label>
+                        <textarea id="requirementsText" name="requirementsText" ng-model="parent.generalRequirements"></textarea>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -49,13 +58,9 @@
                 <h2 class="modal-title text-center" id="successContactModalLabel">{{"CONTACT_HEADER" | translate}} {{getFirstName(sitter)}}</h2>
                 <div class="cross" data-dismiss="modal">&#x2715</div>
             </div>
-            <div class="modal-body">
-                {{::"DETAILS_SENT_TO_1" | translate}}<span ng-show="lang=='en'">{{getFirstName(sitter)}}</span>
-                <span ng-show="lang=='he'">{{sitter.firstNameHe}}</span>{{"DETAILS_SENT_TO_2" | translate}}<span ng-show="contactMe.email">{{"EMAIL" | translate}}</span><span ng-show="contactMe.email && contactMe.phone">/</span><span ng-show="contactMe.phone">{{"PHONE_NUMBER" | translate}}</span>{{"DETAILS_SENT_TO_3" | translate}}
-            </div>
+            <div class="modal-body"> {{::"DETAILS_SENT_TO_1" | translate}}<span ng-show="lang=='en'">{{getFirstName(sitter)}}</span> <span ng-show="lang=='he'">{{sitter.firstNameHe}}</span>{{"DETAILS_SENT_TO_2" | translate}}<span ng-show="contactMe.email">{{"EMAIL" | translate}}</span><span ng-show="contactMe.email && contactMe.phone">/</span><span ng-show="contactMe.phone">{{"PHONE_NUMBER" | translate}}</span>{{"DETAILS_SENT_TO_3" | translate}} </div>
             <div class="modal-footer">
-                <input data-dismiss="modal" class="btn btn-sm btn-main btn-modal" value="{{::'CONGRATS_BTN' | translate}}">
-            </div>
+                <input data-dismiss="modal" class="btn btn-sm btn-main btn-modal" value="{{::'CONGRATS_BTN' | translate}}"> </div>
         </div>
     </div>
 </div>

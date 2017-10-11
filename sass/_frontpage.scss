@@ -1,7 +1,8 @@
+
 .frontpage-content{
     overflow:hidden;
 
-    h1,h2,h3,h4,p{
+    h1,h2,h3,h4,h5,h6,p{
         &:lang(en){
             direction:ltr;
         }
@@ -12,6 +13,7 @@
 
     .btn-main{
         font-size: 2vw;
+       
         border: 2px solid white;
         &:hover{
             border: 2px solid white;
@@ -21,6 +23,7 @@
     }
     .btn-secondary{
         font-size: 2vw;
+        
         border: 2px solid white;
         &:hover{
             border: 2px solid white;
@@ -148,12 +151,13 @@
         }
 
         #main_parent_button{
-            margin-left: 40%;
+          
         }
 
     #main_sitter_button{
-
-           margin-left:0%;
+        
+        margin-right:30px;
+      
     }
 }
 
@@ -192,6 +196,25 @@
         }
     }
 
+   
+     h4{
+        text-align: center;
+        line-height: 1;
+        margin-bottom: 15%;
+        margin-left: 15px;
+        margin-right: 15px;
+       
+
+        &:lang(en){
+           
+            font-size:20px;
+        }
+        
+         font-size: 24px;
+         
+        color:#777777;
+    }
+    
     p{
         text-align: center;
         line-height: 1;
@@ -220,8 +243,6 @@
     }
 
     .under_button_link{
-                      //  margin-left: 46.8%;
-                        font-size: 1.5vw;
                         margin-top: 1%;
                         line-height:3;
 
@@ -260,7 +281,7 @@
             margin-right:20px;
     }
     .btn-row{
-     margin-right: 9%;
+     margin-right: 3%;
      display: flex;
      flex-direction: row;
      float: right;
@@ -278,6 +299,7 @@
     }
 
     .btn-div{
+        width:100%;
         display: flex;
         margin-left: auto;
         margin-right: auto;
@@ -292,6 +314,7 @@
             font-size:3.5vw;
         }
         font-weight: lighter;
+       
     }
 
     #footer_parent{
@@ -371,18 +394,85 @@
 
 
 }
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: $desktop-width) {
 
         .frontpage-content{
-            .background_img{
-
-                h1{
-                    margin-bottom: 70px;
-                }
-
+        
+            
+            h1{
+                
+                font-size:3.5vw;
             }
+            
+            h3{
+                
+                font-size:3vw;
+                margin-bottom: 2.5%;
+            }
+            
+             h4{
+                
+                margin-bottom: 4.5%;
+            
+            
+            }
+            
+
+            
+            .h1-primary{
+                font-size:3.5vw;
+                
+            }
+            .h1-secondary{
+                
+                font-size:3.5vw;
+            
+            }
+            
+            .row{
+                
+                padding-bottom: 3.5%;
+            }
+            .row-inner{
+                
+                width:$desktop-width;
+                margin: 0 auto;
+                
+            }
+            
+            #blu_line_text{
+                font-size:2.5vw;
+                
+            }
+            #h3_blue_line{
+                
+                font-size:3.5vw;
+                /*color: aquamarine;*/
+            }
+            
+            #parent-text{
+                
+                font-size:2.5vw;
+                
+                 margin-top:5%;
+                 margin-bottom:5%;
+              
+                /*color: aquamarine;*/
+            }
+            
+            #sitter-text{
+                
+                font-size:2.5vw;
+                 margin-top:5%;
+                 margin-bottom:5%;
+               
+                /*color: aquamarine;*/
+            }
+            
+            
         }
 }
+
 
 @media only screen and (max-width: 1024px){
     .frontpage-content{
@@ -411,7 +501,8 @@
                 font-size: 13px !important;
             }
          }
-
+        
+        
         #text-overlay {
             visibility: hidden;
         }
@@ -429,27 +520,33 @@
             left: 0;
             margin-left: 2%;
         }
+        
+        .btn{
+             padding: 15px;
+             font-size:24px;
+             display: initial;
+        }
     }
 }
 
 @media screen and (max-width: 768px) {
     .frontpage-content{
-        .btn{
-             padding: 15px;
-             font-size:17px;
-             display: initial;
+        
+        
+        .btn-row{
+            
+            padding-bottom:8%;
         }
+        
         .background_img{
             #main_parent_button{
                 margin-bottom: -10px;
-                margin-left: 20%;
-                padding:5%;
+                
             }
 
             #main_sitter_button{
                 margin-bottom: -10px;
-                margin-left:10%;
-                padding:5%;
+                margin-right: 5px;
             }
             h1{
                padding-left: 30%;
@@ -468,6 +565,9 @@
             font-size:30px !important;
 
         }
+        
+        
+        
         p{
             font-size: 18px !important;
             font-size: 6.4 vw !important;
@@ -477,10 +577,10 @@
         }
         #parent-text, #sitter-text{
             font-size:25px;
-            font-size: 6.2vw;
+            /*font-size: 6.2vw;*/
             &:lang(en){
                 line-height: 1.5;
-                font-size: 14px !important;
+                font-size: 20px !important;
             }
         }
 
@@ -491,7 +591,7 @@
         .btn-div{
             .btn{
                 width: auto;
-                min-width: 40%;
+                //min-width: 40%;
             }
         }
 
