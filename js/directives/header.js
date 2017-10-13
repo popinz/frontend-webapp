@@ -80,13 +80,13 @@
                         return "";
                 }
 
-                $scope.linkToProfile = function(){
+                $scope.linkToProfile = function(lang){
                     var link = "";
                     if($rootScope.user.userType === "sitter"){
                         if($rootScope.user.profileReady)
-                            link = "#/sitter-profile/"+$rootScope.lang;
+                            link = "#/sitter-profile/" + lang;
                         else
-                            link = "#/signup/"+$rootScope.lang;
+                            link = "#/signup/" + lang;
                     }
                     return link;
 

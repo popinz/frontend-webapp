@@ -11,7 +11,7 @@
                 </button>
                 <!-- Logo -->
                 <div class="logo">
-                    <a ng-href="#/main/{{lang}}"><img class="logo-img" src="images/logo.png" alt="Babysitter"></a>
+                    <a ng-href="#/main/{{lang}}"><img class="logo-img" src="images/logo.png" alt="Babysitter"></img></a>
 
                 </div>
                 <!-- Logo / End -->
@@ -23,7 +23,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar" ng-class="{'navbar-lang-wide':showLangSelect()}">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="highlight" ng-href={{linkToProfile()}}>{{getGreeting(lang)}}</a></li>
+                    <li><a class="highlight" ng-href="{{linkToProfile(lang)}}">{{getGreeting(lang)}}</a></li>
                     <li><a class="highlight" href="https://blog.popinz.co/camps/">{{lang | translateRe : "CAMPS"}}</a></li>
                     <li><a ng-href="#/sitters/{{lang}}">{{lang | translateRe : "SEARCH"}}</a></li>
                     <li><a ng-href="https://blog.popinz.co/about-{{lang}}/">{{lang | translateRe : "ABOUT"}}</a></li>
